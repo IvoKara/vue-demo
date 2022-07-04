@@ -4,6 +4,6 @@
 
 <template>
   <main>
-  This is contacts page
+    This is home page
   </main>
 </template>

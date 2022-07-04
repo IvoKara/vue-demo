@@ -4,6 +4,6 @@
 
 <template>
   <main>
-  This is blogs view
+    This is contacts page
   </main>
 </template>

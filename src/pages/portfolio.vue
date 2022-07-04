@@ -4,6 +4,6 @@
 
 <template>
   <main>
-  This is home page
+    This is portfolio view
   </main>
 </template>

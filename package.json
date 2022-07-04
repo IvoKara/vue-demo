@@ -10,10 +10,15 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "daisyui": "^2.18.0",
+    "unplugin-auto-import": "^0.9.2",
+    "unplugin-vue-components": "^0.21.0",
+    "vite-plugin-pages": "^0.25.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
     "@iconify/json": "^2.1.72",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.41",
