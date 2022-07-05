@@ -33,7 +33,9 @@ function more() {
       <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
     </ul> -->
 
-  <RouterView />
+  <div class="my-100 text-5xl">
+    <RouterView />
+  </div>
   <!-- <button @click="more">Click me!</button>
   </div> -->
   <footer text-center bg-stone-800 text-white>
@@ -45,7 +47,7 @@ function more() {
       Proudly created from Ivo Karaneshev.
     </p>
     <ul list-none>
-      <div flex items-center justify-center gap-4 my-2 py-3 text-xs>
+      <div flex items-center justify-center gap-4 mt-2 pb-4 text-xs>
         <SocialIcon link="https://www.facebook.com/chriskphotogprahy/?ref=bookmarks">
           <div mx-auto w-5 h-5 i-bi-facebook />
         </SocialIcon>

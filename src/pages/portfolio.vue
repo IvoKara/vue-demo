@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main my-100 text-5xl>
+  <main>
     This is portfolio view
   </main>
 </template>
