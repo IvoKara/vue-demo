@@ -2,6 +2,7 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "include": ["components.d.ts", "auto-imports.d.ts", "env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
+    "target": "ES5",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
