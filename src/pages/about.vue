@@ -4,6 +4,11 @@
   </div>
 </template>
 
+<route lang="yaml">
+meta:
+  layout: default
+</route>
+
 <style>
 @media (min-width: 1024px) {
   .about {
@@ -12,3 +17,4 @@
     align-items: center;
   }
 }
+</style>

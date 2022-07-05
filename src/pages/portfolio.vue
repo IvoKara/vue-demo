@@ -7,3 +7,11 @@
     This is portfolio view
   </main>
 </template>
+
+<route>
+{
+  meta: {
+    layout: "second"
+  }
+}
+</route>

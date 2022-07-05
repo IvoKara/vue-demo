@@ -17,15 +17,15 @@ const items: Ref<MenuItem[]> = ref([
 
 <template>
   <div>
-    <nav text-center font-montserrat text-lg sticky t0>
+    <nav text-center font-montserrat text-lg sticky top-0 w-screen>
       <ul v-for="(item, i) in items" :key="i" inline>
         <li inline-block m-4>
-          <RouterLink :to="item.link" active-class="text-red">
+          <RouterLink :to="item.link" active-class="text-orange-800">
             {{ item.name }}
           </RouterLink>
         </li>
       </ul>
     </nav>
+    <div sticky bg-yellow-600 w-115 h-1 mx-auto flex mt-15 />
   </div>
-  <div top-0 bg-yellow-600 w-115 h-1 mx-auto />
 </template>
