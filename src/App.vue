@@ -24,46 +24,14 @@ function more() {
 
 <template>
   <header relative>
-    <nav sticky text-center font-montserrat text-lg>
-      <ul gap-4 list-style-none w-screen>
-        <li>
-          <RouterLink to="/">
-            Home
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/portfolio">
-            Portfolio
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/blog">
-            Blog
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/about">
-            About
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/contacts">
-            Contacts
-          </RouterLink>
-        </li>
-      </ul>
-    </nav>
-    <div sticky top-0 bg-yellow-600 w-115 h-1 mx-auto />
+    <Navigation />
   </header>
-
-  <Navigation />
 
   <!-- <div class="mx-auto w-80">
 
     <ul v-for="(item, i) in list" :key="i">
       <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
     </ul> -->
-  <div h-80 />
 
   <RouterView />
   <!-- <button @click="more">Click me!</button>
@@ -94,11 +62,4 @@ function more() {
     </ul>
   </footer>
 </template>
-
-<style scoped>
-nav li {
-  display: inline-block;
-  margin: 1rem
-}
-</style>
 

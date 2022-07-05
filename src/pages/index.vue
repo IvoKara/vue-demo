@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main>
+  <main my-100 text-5xl>
     This is home page
   </main>
 </template>

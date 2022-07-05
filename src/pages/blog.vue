@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main>
+  <main my-100 text-5xl>
     This is blogs view
   </main>
 </template>

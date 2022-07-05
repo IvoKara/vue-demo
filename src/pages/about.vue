@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div my-100 text-5xl>
     This is an about page
   </div>
 </template>
