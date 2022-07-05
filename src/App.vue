@@ -33,7 +33,7 @@ function more() {
       <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
     </ul> -->
 
-  <div class="my-100 text-5xl">
+  <div v-cloak class="my-100 text-5xl" min-h-screen>
     <RouterView />
   </div>
   <!-- <button @click="more">Click me!</button>

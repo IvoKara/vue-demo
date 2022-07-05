@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
+import '@/../node_modules/nprogress/nprogress.css'
 
 const app = createApp(App)
 
