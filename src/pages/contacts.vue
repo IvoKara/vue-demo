@@ -3,12 +3,12 @@
 </script>
 
 <template>
-  <main>
-    This is contacts page
-  </main>
+  <div>
+    <PageHeading value="Contacts" />
+  </div>
 </template>
 
-<route lang="yaml">
+<!-- <route lang="yaml">
 meta:
   layout: sub/sublayout
-</route>
+</route> -->

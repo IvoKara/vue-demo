@@ -1,6 +1,6 @@
 <template>
   <div>
-    This is an about page
+    <PageHeading value="About" />
   </div>
 </template>
 

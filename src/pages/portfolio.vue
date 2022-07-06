@@ -3,15 +3,15 @@
 </script>
 
 <template>
-  <main>
-    This is portfolio view
-  </main>
+  <div>
+    <PageHeading value="Portrait Gallery" />
+  </div>
 </template>
 
-<route>
+<!-- <route>
 {
   meta: {
     layout: "second"
   }
 }
-</route>
+</route> -->

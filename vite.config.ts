@@ -35,6 +35,7 @@ export default defineConfig({
           fonts: {
             oswald: 'Oswald:400,600',
             montserrat: 'Montserrat:400',
+            greatvibes: 'Great Vibes:400',
           },
         }),
       ],

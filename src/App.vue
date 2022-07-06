@@ -23,7 +23,7 @@ function more() {
 </script>
 
 <template>
-  <header relative>
+  <header>
     <Navigation />
   </header>
 
@@ -33,9 +33,8 @@ function more() {
       <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
     </ul> -->
 
-  <div v-cloak class="my-100 text-5xl" min-h-screen>
-    <RouterView />
-  </div>
+  <RouterView />
+  <div v-cloak class="my-100 text-5xl" min-h-screen />
   <!-- <button @click="more">Click me!</button>
   </div> -->
   <footer text-center bg-stone-800 text-white>

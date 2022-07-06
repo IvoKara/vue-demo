@@ -1,9 +1,6 @@
 <template>
-  <main px-4 py-10 text-center text-gray-700 dark:text-gray-200>
-    <div w="1/4" m-auto text-center text-gray-300 bg-teal-800>
-      Default Layout
-      <RouterView />
-    </div>
+  <main my-10 px-4 py-5 text-center text-black dark:text-gray-200>
+    <RouterView />
   </main>
 </template>
 

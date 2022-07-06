@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <main>
-    This is blogs view
-  </main>
+  <div>
+    <PageHeading value="Blog" />
+  </div>
 </template>
