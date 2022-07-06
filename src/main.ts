@@ -1,14 +1,14 @@
 import { createApp } from 'vue'
+import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import App from './App.vue'
 import router from './router'
-import '@unocss/reset/tailwind.css'
 import 'uno.css'
+import '@unocss/reset/tailwind.css'
 import '@/../node_modules/nprogress/nprogress.css'
-
-import 'vue-custom-scrollbar/dist/vueScrollbar.css'
+import 'vue3-perfect-scrollbar/dist/vue3-perfect-scrollbar.css'
 
 const app = createApp(App)
 
+app.use(PerfectScrollbar)
 app.use(router)
-
 app.mount('#app')
