@@ -11,7 +11,14 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  console.log('gesdfd')
+  // NProgress.settings.showSpinner = false
+  NProgress.configure({
+    template: `
+      <div style="background: rgb(202 138 4);" class="bar" role="bar">
+        <div class="peg"> 
+        </div>
+      </div>`,
+  })
   NProgress.start()
 })
 

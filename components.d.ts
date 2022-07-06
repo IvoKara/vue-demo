@@ -14,5 +14,4 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SocialIcon: typeof import('./src/components/SocialIcon.vue')['default']
   }
-
 }
