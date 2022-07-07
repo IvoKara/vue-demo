@@ -7,7 +7,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
 
-import { presetAttributify, presetIcons, presetUno, presetWebFonts } from 'unocss'
+import { presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,10 +34,14 @@ export default defineConfig({
           provider: 'google',
           fonts: {
             oswald: 'Oswald:400,600',
-            montserrat: 'Montserrat:400',
+            montserrat: 'Montserrat',
             greatvibes: 'Great Vibes:400',
           },
         }),
+        presetTypography(),
+      ],
+      rules: [
+        ['text-2xs', { 'font-size': '0.75rem', 'line-height': '1rem;' }],
       ],
     }),
   ],

@@ -5,6 +5,7 @@
 <template>
   <div>
     <PageHeading value="Contacts" />
+    <ContactForm />
   </div>
 </template>
 
