@@ -14,7 +14,10 @@ export default defineConfig({
 
   plugins: [
     vue(),
-    Components(),
+    Components({
+      dirs: ['./src/components/', './node_modules/@vueuse/head/**/*'],
+
+    }),
     Pages(),
     Layouts({
       layoutsDirs: 'src/layouts',
@@ -23,6 +26,7 @@ export default defineConfig({
     AutoImport({
       imports: [
         'vue', 'vue-router',
+        '@vueuse/core', '@vueuse/head',
       ],
     }),
     Unocss({

@@ -13,19 +13,23 @@ const items: Ref<MenuItem[]> = ref([
   { name: 'About', link: '/about' },
   { name: 'Contacts', link: '/contacts' },
 ])
+const { x, y } = useMouse()
 </script>
 
 <template>
-  <div>
-    <nav text-center font-montserrat text-lg w-screen bg-white>
-      <ul v-for="(item, i) in items" :key="i" inline>
-        <li inline-block m-4>
-          <RouterLink :to="item.link" active-class="text-yellow-700 font-600">
+  <div fixed>
+    <nav text-center font-montserrat text-lg w-screen class="bg-base-100" flex items-center justify-center>
+      <ul flex items-center>
+        <li v-for="(item, i) in items" :key="i" m-4>
+          <RouterLink :to="item.link" active-class="text-primary-focus font-600">
             {{ item.name }}
           </RouterLink>
         </li>
       </ul>
     </nav>
-    <div bg-yellow-600 w-130 h="0.5" mx-auto />
+    <DarkToggle />
+    <div class="bg-primary-focus" font- w-130 h="0.5" mx-auto />
+    {{ x }}
+    {{ y }}
   </div>
 </template>

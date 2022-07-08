@@ -1,4 +1,7 @@
 <template>
+  <Head>
+    <title>Not found</title>
+  </Head>
   <div>
     <p>
       Page not found

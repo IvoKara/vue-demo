@@ -2,7 +2,11 @@
 import type { Ref } from 'vue'
 import { isFieldEmpty, isValidMail } from '../composables/validateMail'
 
-const name = ref('')
+const nameRef = ref('')
+const { undo, redo, history } = useRefHistory(nameRef)
+onKeyStroke(['ctrl', 'z'], () => undo)
+onKeyStroke(['ctrl', 'shifht', 'z'], () => redo)
+
 const email = ref('')
 const message = ref('')
 const emailValid: Ref<null | boolean> = ref(null)
@@ -20,7 +24,7 @@ function ValidateEmail() {
 }
 
 function checkEmptyName() {
-  nameEmpty.value = isFieldEmpty(name.value)
+  nameEmpty.value = isFieldEmpty(nameRef.value)
 }
 
 function checkEmptyMessage() {
@@ -55,6 +59,9 @@ watch(email, (val) => {
 </script>
 
 <template>
+  <div v-for="state in history" :key="state">
+    {{ state }}
+  </div>
   <form mx-auto w-100 text-left @submit.prevent="(e) => sendMail(e as SubmitEvent)">
     <label for="name" w-full>
       <p font-oswald>Name:</p>
@@ -62,7 +69,7 @@ watch(email, (val) => {
         * Required
       </p>
       <input
-        id="name" v-model="name" type="text" name="name" class="input input-bordered w-full"
+        id="name" v-model="nameRef" type="text" name="name" class="input input-bordered w-full"
         :class="nameEmpty === null ? '' : !nameEmpty ? 'input-success' : 'input-error'"
         placeholder="Your Name..."
         @focusout="checkEmptyName"
@@ -93,7 +100,7 @@ watch(email, (val) => {
       />
     </label>
 
-    <button type="submit" class="btn">
+    <button type="submit" class="btn btn-primary">
       Send
     </button>
   </form>

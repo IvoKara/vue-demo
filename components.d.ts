@@ -7,7 +7,9 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    Comp: typeof import('./src/components/comp.vue')['default']
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
+    DarkToggle: typeof import('./src/components/DarkToggle.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     NavigationLink: typeof import('./src/components/NavigationLink.vue')['default']

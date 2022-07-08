@@ -29,7 +29,7 @@
     justify-between
     overflow-x-hidden
   >
-    <header>
+    <header relative>
       <!-- style="height: 60px;" -->
       <Navigation />
     </header>
@@ -37,10 +37,10 @@
         <ul v-for="(item, i) in list" :key="i">
           <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
         </ul> -->
-    <RouterView flex-1 />
+    <RouterView />
     <!-- <button @click="more">Click me!</button>
       </div> -->
-    <footer text-center bg-stone-800 text-white>
+    <footer text-center class="bg-stone-800 text-white">
       <!-- style="height:160px" -->
       <p font-oswald text-3xl py-4>
         Sofia, Bulgaria | chrisparvanov17@gmail.com | Tel: +359-87-698-8867
