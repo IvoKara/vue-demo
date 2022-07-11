@@ -1,4 +1,11 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
+const route = useRoute()
+const scroll: Ref<HTMLElement | null> = ref(null)
+watch(route, (val) => {
+  scroll.value.$el.scrollTop = 0
+})
+
 // interface ListItem {
 //   name: string
 //   isNew?: boolean
@@ -22,6 +29,7 @@
 
 <template>
   <perfect-scrollbar
+    ref="scroll"
     w-screen
     h-screen
     flex
@@ -40,7 +48,7 @@
     <RouterView />
     <!-- <button @click="more">Click me!</button>
       </div> -->
-    <footer text-center class="bg-stone-800 text-white">
+    <footer transition-dark-light text-center class="bg-neutral-800 dark:bg-amber-700/87 text-white">
       <!-- style="height:160px" -->
       <p font-oswald text-3xl py-4>
         Sofia, Bulgaria | chrisparvanov17@gmail.com | Tel: +359-87-698-8867

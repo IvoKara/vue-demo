@@ -17,7 +17,7 @@ const { x, y } = useMouse()
 </script>
 
 <template>
-  <div fixed>
+  <div fixed z-1>
     <nav text-center font-montserrat text-lg w-screen class="bg-base-100" flex items-center justify-center>
       <ul flex items-center>
         <li v-for="(item, i) in items" :key="i" m-4>

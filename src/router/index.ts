@@ -12,6 +12,7 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
   // NProgress.settings.showSpinner = false
+  window.scrollTo(0, 0)
   NProgress.configure({
     template: `
       <div style="background: rgb(202 138 4);" class="bar" role="bar">
