@@ -4,10 +4,20 @@ import { useDark } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { isDark } from '@/composables/dark'
 import { useUserStore } from '@/stores/user'
+const router = useRouter()
 const auth = useUserStore()
 const { isLoggedin } = storeToRefs(auth)
 onMounted(() => {
-  setTimeout(() => isLoggedin.value = true, 2999)
+  setTimeout(() => {
+    auth.$patch({
+      isLoggedin: false,
+    })
+  }, 2999)
+})
+
+auth.$subscribe((ev) => {
+  if (!ev?.payload?.isLoggedin)
+    router.push('/login')
 })
 </script>
 

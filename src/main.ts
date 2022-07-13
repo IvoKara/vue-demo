@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import PerfectScrollbar from 'vue3-perfect-scrollbar'
 import { Head, createHead } from '@vueuse/head'
 import { createPinia } from 'pinia'
 import App from './App.vue'
