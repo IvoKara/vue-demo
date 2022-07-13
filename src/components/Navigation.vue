@@ -12,6 +12,7 @@ const items: Ref<MenuItem[]> = ref([
   { name: 'Blog', link: '/blog' },
   { name: 'About', link: '/about' },
   { name: 'Contacts', link: '/contacts' },
+  { name: 'Profile', link: '/login' },
 ])
 const { x, y } = useMouse()
 </script>

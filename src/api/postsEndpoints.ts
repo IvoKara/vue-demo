@@ -2,7 +2,7 @@ import { useAxios } from '@vueuse/integrations/useAxios'
 import { axiosInstance } from './axiosInstance'
 import type { Post } from '@/types'
 
-export const indexPost = (params: any) =>
+export const indexPosts = (params?: any) =>
   useAxios('/posts', { params }, axiosInstance)
 
 export const showPost = (id: any) =>

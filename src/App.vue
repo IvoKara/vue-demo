@@ -1,34 +1,10 @@
-<script setup lang="ts">
-import type { Ref } from 'vue'
-const route = useRoute()
-const scroll: Ref<HTMLElement | null> = ref(null)
-watch(route, (val) => {
-  scroll.value.$el.scrollTop = 0
-})
-
-// interface ListItem {
-//   name: string
-//   isNew?: boolean
-// }
-
-// const list: Ref<ListItem[]> = ref([
-//   { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' }, { name: 'one' },
-// ])
-
-// // const hello = computed(() => {
-// //   return counter.value * 2
-// // })
-// function more() {
-//   list.value.push(
-//     {
-//       name: 'more!!',
-//       isNew: true,
-//     })
-// }
-</script>
+<!-- <script setup lang="ts">
+import { useAxios } from '@vueuse/integrations'
+import { axiosInstance } from './api/axiosInstance'
+</script> -->
 
 <template>
-  <perfect-scrollbar
+  <div
     ref="scroll"
     w-screen
     h-screen
@@ -74,7 +50,7 @@ watch(route, (val) => {
         </div>
       </ul>
     </footer>
-  </perfect-scrollbar>
+  </div>
 </template>
 
 <style>

@@ -18,7 +18,8 @@ router.beforeEach((to, from) => {
       <div style="background: rgb(202 138 4);" class="bar" role="bar">
         <div class="peg"> 
         </div>
-      </div>`,
+      </div>
+    `,
   })
   NProgress.start()
 })

@@ -12,6 +12,8 @@ declare module '@vue/runtime-core' {
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
     DarkToggle: typeof import('./src/components/DarkToggle.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    InputField: typeof import('./src/components/InputField.vue')['default']
+    LoginFrom: typeof import('./src/components/LoginFrom.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     NavigationLink: typeof import('./src/components/NavigationLink.vue')['default']
     PageHeading: typeof import('./src/components/PageHeading.vue')['default']
@@ -20,6 +22,7 @@ declare module '@vue/runtime-core' {
     PostList: typeof import('./src/components/PostList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SmallTextUnderForm: typeof import('./src/components/smallTextUnderForm.vue')['default']
     SocialIcon: typeof import('./src/components/SocialIcon.vue')['default']
   }
 }
