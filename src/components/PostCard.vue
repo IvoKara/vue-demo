@@ -17,11 +17,11 @@ const post: Post = props.content
       </h2>
       <p>{{ post?.body?.slice(0, 100).concat('...') }}</p>
       <div class="card-actions justify-end">
-        <router-link
+        <RouterLink
           :to="`/blog/${post?.id}`" class="btn btn-primary-content"
         >
           Read more
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </div>

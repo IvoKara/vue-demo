@@ -2,7 +2,7 @@
   "name": "demo-vue",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite & json-server db.json -p 3001",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "build-only": "vite build",
@@ -12,6 +12,8 @@
   "dependencies": {
     "@vueuse/core": "^8.9.1",
     "@vueuse/head": "^0.7.6",
+    "@vueuse/integrations": "^8.9.2",
+    "axios": "^0.27.2",
     "nprogress": "^0.2.0",
     "vue": "^3.2.37",
     "vue-router": "^4.0.16",

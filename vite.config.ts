@@ -25,8 +25,11 @@ export default defineConfig({
     }),
     AutoImport({
       imports: [
-        'vue', 'vue-router',
-        '@vueuse/core', '@vueuse/head',
+        'vue',
+        'vue-router',
+        '@vueuse/core',
+        '@vueuse/head',
+        // '@vueuse/integrations',
       ],
     }),
     Unocss({

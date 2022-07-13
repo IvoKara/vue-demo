@@ -5,7 +5,9 @@ const isIdle = useIdle(400)
 </script>
 
 <template>
-  <Head>About</Head>
+  <Head>
+    <title>About</title>
+  </Head>
   <div>
     <PageHeading value="About" />
     {{ isIdle }}
