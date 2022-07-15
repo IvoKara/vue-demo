@@ -7,23 +7,22 @@ import { useUserStore } from '@/stores/user'
 const router = useRouter()
 const auth = useUserStore()
 const { isLoggedin } = storeToRefs(auth)
-onMounted(() => {
-  setTimeout(() => {
-    auth.$patch({
-      isLoggedin: false,
-    })
-  }, 2999)
-})
+// onMounted(() => {
+//   setTimeout(() => {
+//     auth.$patch({
+//       isLoggedin: false,
+//     })
+//   }, 2999)
+// })
 
-auth.$subscribe((ev) => {
-  if (!ev?.payload?.isLoggedin)
-    router.push('/login')
-})
+// auth.$subscribe((ev) => {
+//   if (!ev?.payload?.isLoggedin)
+//     router.push('/login')
+// })
 </script>
 
 <template>
   <main my-10 px-4 py-5 text-center>
-    {{ isLoggedin }}
     <RouterView />
   </main>
 </template>

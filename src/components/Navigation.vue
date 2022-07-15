@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import type { Ref } from 'vue'
+import { useUserStore } from '@/stores/user'
 
 interface MenuItem {
   name: string
@@ -12,7 +14,6 @@ const items: Ref<MenuItem[]> = ref([
   { name: 'Blog', link: '/blog' },
   { name: 'About', link: '/about' },
   { name: 'Contacts', link: '/contacts' },
-  { name: 'Profile', link: '/login' },
 ])
 const { x, y } = useMouse()
 </script>
@@ -27,10 +28,16 @@ const { x, y } = useMouse()
           </RouterLink>
         </li>
       </ul>
+      <LoginIcon />
     </nav>
     <DarkToggle />
     <div class="bg-primary-focus" font- w-130 h="0.5" mx-auto />
     {{ x }}
     {{ y }}
+    <!-- <div v-if="payload !== {}" class="avatar placeholder">
+      <div class="bg-neutral-focus text-neutral-content rounded-full w-16">
+        <span class="text-xl">{{ payload }}</span>
+      </div>
+    </div> -->
   </div>
 </template>

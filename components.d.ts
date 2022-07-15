@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     InputField: typeof import('./src/components/InputField.vue')['default']
     LoginFrom: typeof import('./src/components/LoginFrom.vue')['default']
+    LoginIcon: typeof import('./src/components/LoginIcon.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     NavigationLink: typeof import('./src/components/NavigationLink.vue')['default']
     PageHeading: typeof import('./src/components/PageHeading.vue')['default']
