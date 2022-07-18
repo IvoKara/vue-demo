@@ -16,10 +16,9 @@ const email: Ref<string> = ref('')
 const password: Ref<string> = ref('')
 const inputOptions: InputOptions[] = [
 
-  { label: 'Username', type: 'text', placeholder: 'Username or email', targetRef: username },
+  { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
   { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
 ]
-// const isLoading = ref(true)
 </script>
 
 <template>
@@ -27,10 +26,10 @@ const inputOptions: InputOptions[] = [
     v-if="isLoading"
     transition ease-in-out transition-duration="0.4s"
     z-10 w-100 h-100
-    fixed flex items-center justify-center
-    bg-white opacity-50
+    fixed
+    opacity-50
+    class="bg-base-100"
   />
-
   <h1 text-2xl>
     {{ name }}
   </h1>

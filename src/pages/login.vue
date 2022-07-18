@@ -41,15 +41,6 @@ const smallText: Ref<SmallText> = ref({
   link: '/register',
   linkText: 'Register now!',
 })
-
-onBeforeMount(() => {
-  if (authStore.isLoggedIn)
-    router.push('/')
-})
-
-watch(() => authStore.isLoggedIn, () => {
-  router.push('/')
-})
 </script>
 
 <template>

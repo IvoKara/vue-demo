@@ -5,27 +5,13 @@ import type { InputOptions, SmallText } from '@/types'
 import { useUserStore } from '@/stores/user'
 import router from '@/router'
 
-function register() {
-  alert('registring you')
-}
-const userStorage = useUserStore()
-const { isLoggedin } = storeToRefs(userStorage)
-
-const inputOptions: Ref<InputOptions[]> = ref([
-  { label: 'Username', type: 'text', placeholder: 'Username' },
-  { label: 'Email', type: 'email', placeholder: 'Email' },
-  { label: 'Password', type: 'password', placeholder: 'Password' },
-])
+const authStore = useUserStore()
+const { isLoading } = storeToRefs(authStore)
 
 const smallText: Ref<SmallText> = ref({
   text: 'Already have a profile?',
   link: '/login',
   linkText: 'Login here!',
-})
-
-onBeforeMount(() => {
-  if (isLoggedin)
-    router.push('/')
 })
 </script>
 
@@ -35,10 +21,9 @@ onBeforeMount(() => {
   </Head>
   <LoginFrom
     name="Register"
-    :input-options="inputOptions"
     :small-text="smallText"
-    :
-    @on-submit="register"
+    :is-loading="isLoading"
+    @on-submit="authStore.register"
   />
 </template>
 

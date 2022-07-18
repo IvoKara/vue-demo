@@ -1,4 +1,16 @@
 <script setup lang="ts">
+import router from '@/router'
+import { useUserStore } from '@/stores/user'
+
+const authStore = useUserStore()
+onBeforeMount(() => {
+  if (authStore.isLoggedIn)
+    router.push('/')
+})
+
+watch(() => authStore.isLoggedIn, () => {
+  router.push('/')
+})
 </script>
 
 <template>
