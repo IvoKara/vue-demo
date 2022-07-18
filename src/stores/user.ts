@@ -1,4 +1,5 @@
 import type { RemovableRef } from '@vueuse/core'
+import type { Axios } from 'axios'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { defineStore } from 'pinia'
@@ -49,6 +50,19 @@ export const useUserStore = defineStore('user', {
       this.token = result.data.token
       if (this.token)
         this.payload = JSON.stringify(jwt_decode(this.token))
+    },
+
+    async acc() {
+      if (this.token === null)
+        return
+      const api = axios.create({
+        baseURL: 'http://192.168.201.59:3001',
+        headers: {
+          authorization: `Bearer ${this.token}`,
+        },
+      })
+      const result = await api.get('acc')
+      console.log(result?.data)
     },
   },
 })

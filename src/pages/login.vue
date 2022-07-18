@@ -13,29 +13,6 @@ const authStore = useUserStore()
 
 const { isLoading } = storeToRefs(authStore)
 
-// const isLoading = ref(false)
-// const apiClient: Axios = axios.create({
-//   baseURL: 'http://192.168.201.59:3001',
-//   // headers: {
-//   //   authorization: `Bearer ${res.data.token}`
-//   // },
-// })
-// const logUser = event => apiClient.post('login', event)
-
-// async function login(event: any) {
-//   isLoading.value = true
-
-//   const result = await logUser(event)
-//   loginPayload.value = jwt_decode(result.data.token)
-//   console.log(loginPayload)
-//   token.value = result.data.token
-
-//   apiClient.defaults.headers.authorization = `Bearer ${result.data.token}`
-//   // console.log(decode(result.data.token))
-// }
-// // setTimeout(() => isLoading.value = false, 2000)
-// // fet
-
 const smallText: Ref<SmallText> = ref({
   text: 'Don\'t have a profile?',
   link: '/register',

@@ -1,6 +1,10 @@
 <script setup lang="ts">
 // const title = ref('Home')
+
+import { useUserStore } from '@/stores/user'
+
 // import { Head } from '@vueuse/head'
+const authStore = useUserStore()
 </script>
 
 <template>
@@ -9,5 +13,8 @@
   </Head>
   <main>
     This is home page
+    <button class="btn btn primary" @click="authStore.acc">
+      Get Acc
+    </button>
   </main>
 </template>

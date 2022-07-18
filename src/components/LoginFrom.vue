@@ -30,22 +30,24 @@ const inputOptions: InputOptions[] = [
     opacity-50
     class="bg-base-100"
   />
-  <h1 text-2xl>
-    {{ name }}
-  </h1>
-  <form @submit.prevent="$emit('onSubmit', { username, password })">
-    <InputField
-      v-for="opt in inputOptions" :key="opt.label"
-      v-model:fieldValue="opt.targetRef.value" :section="opt"
-    />
-    <button
-      type="submit" class="btn btn-primary w-full my-2"
-      :class="{ loading: isLoading === true }"
-    >
+  <div transition-dark-light>
+    <h1 text-2xl>
       {{ name }}
-    </button>
-  </form>
-  <SmallTextUnderForm
-    :options="smallText"
-  />
+    </h1>
+    <form @submit.prevent="$emit('onSubmit', { username, password })">
+      <InputField
+        v-for="opt in inputOptions" :key="opt.label"
+        v-model:fieldValue="opt.targetRef.value" :section="opt"
+      />
+      <button
+        type="submit" class="btn btn-primary w-full my-2 transition-dark-light"
+        :class="{ loading: isLoading === true }"
+      >
+        {{ name }}
+      </button>
+    </form>
+    <SmallTextUnderForm
+      :options="smallText"
+    />
+  </div>
 </template>
