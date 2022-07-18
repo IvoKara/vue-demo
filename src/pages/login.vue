@@ -11,7 +11,7 @@ import router from '@/router'
 
 const authStore = useUserStore()
 
-const { payload: loginPayload, token } = storeToRefs(authStore)
+const { isLoading } = storeToRefs(authStore)
 
 // const isLoading = ref(false)
 // const apiClient: Axios = axios.create({
@@ -46,6 +46,10 @@ onBeforeMount(() => {
   if (authStore.isLoggedIn)
     router.push('/')
 })
+
+watch(() => authStore.isLoggedIn, () => {
+  router.push('/')
+})
 </script>
 
 <template>
@@ -55,7 +59,7 @@ onBeforeMount(() => {
   <LoginFrom
     name="Login"
     :small-text="smallText"
-    :is-loading="authStore.isLoggedIn"
+    :is-loading="isLoading"
     @on-submit="authStore.login"
   />
 </template>

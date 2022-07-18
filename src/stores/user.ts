@@ -6,6 +6,7 @@ import { defineStore } from 'pinia'
 interface UserState {
   token: RemovableRef<any>
   payload: any
+  isLoading: boolean
 }
 
 // useStore could be anything like useUser, useCart
@@ -14,6 +15,7 @@ export const useUserStore = defineStore('user', {
   state: (): UserState => ({
     token: useStorage('token', null),
     payload: useStorage('payload', null),
+    isLoading: false,
   }),
   getters: {
     isLoggedIn(state) {
@@ -28,7 +30,10 @@ export const useUserStore = defineStore('user', {
 
     async login(event) {
       const url = 'http://192.168.201.59:3001/login'
-      const result = await axios.post(url, event)
+      this.isLoading = true
+      const prom = axios.post(url, event)
+      const result = await prom
+      this.isLoading = await prom.then(() => false)
       this.token = result.data.token
       if (this.token)
         this.payload = JSON.stringify(jwt_decode(this.token))

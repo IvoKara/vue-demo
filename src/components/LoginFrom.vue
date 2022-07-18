@@ -19,9 +19,18 @@ const inputOptions: InputOptions[] = [
   { label: 'Username', type: 'text', placeholder: 'Username or email', targetRef: username },
   { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
 ]
+// const isLoading = ref(true)
 </script>
 
 <template>
+  <div
+    v-if="isLoading"
+    transition ease-in-out transition-duration="0.4s"
+    z-10 w-100 h-100
+    fixed flex items-center justify-center
+    bg-white opacity-50
+  />
+
   <h1 text-2xl>
     {{ name }}
   </h1>
