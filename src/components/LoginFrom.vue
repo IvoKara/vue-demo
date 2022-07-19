@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import type { InputOptions, SmallText } from '@/types'
-
+import { useUserStore } from '@/stores/user'
 const props = defineProps<{
   name: string
   // inputOptions: InputOptions[]
@@ -19,6 +19,8 @@ const inputOptions: InputOptions[] = [
   { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
   { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
 ]
+
+const userStore = useUserStore()
 </script>
 
 <template>
@@ -49,5 +51,11 @@ const inputOptions: InputOptions[] = [
     <SmallTextUnderForm
       :options="smallText"
     />
+    <div
+      v-for="error in userStore.errors" :key="error"
+      class="text-error text-sm"
+    >
+      {{ error.response.data }}
+    </div>
   </div>
 </template>

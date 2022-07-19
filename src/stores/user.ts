@@ -8,6 +8,7 @@ interface UserState {
   token: RemovableRef<any>
   payload: any
   isLoading: boolean
+  errors: any[]
 }
 
 // useStore could be anything like useUser, useCart
@@ -17,6 +18,7 @@ export const useUserStore = defineStore('user', {
     token: useStorage('token', null),
     payload: useStorage('payload', null),
     isLoading: false,
+    errors: [],
   }),
   getters: {
     isLoggedIn(state) {
@@ -45,11 +47,18 @@ export const useUserStore = defineStore('user', {
       const url = 'http://192.168.201.59:3001/register'
       this.isLoading = true
       const prom = axios.post(url, event)
-      const result = await prom
-      this.isLoading = await prom.then(() => false)
-      this.token = result.data.token
-      if (this.token)
-        this.payload = JSON.stringify(jwt_decode(this.token))
+      try {
+        const result = await prom
+        this.token = result.data.token
+        if (this.token)
+          this.payload = JSON.stringify(jwt_decode(this.token))
+      }
+      catch (e: any) {
+        this.errors.push(e)
+      }
+      finally {
+        this.isLoading = false
+      }
     },
 
     async acc() {
