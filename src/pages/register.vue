@@ -23,7 +23,7 @@ const smallText: Ref<SmallText> = ref({
     name="Register"
     :small-text="smallText"
     :is-loading="isLoading"
-    @on-submit="authStore.register"
+    @on-submit="authStore.formRequest"
   />
 </template>
 

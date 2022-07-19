@@ -31,20 +31,10 @@ export const useUserStore = defineStore('user', {
       this.payload = null
     },
 
-    async login(event) {
-      const url = 'http://192.168.201.59:3001/login'
-      this.isLoading = true
-      const prom = axios.post(url, event)
-      const result = await prom
-      this.isLoading = await prom.then(() => false)
-      this.token = result.data.token
-      if (this.token)
-        this.payload = JSON.stringify(jwt_decode(this.token))
-      // apiClient.defaults.headers.authorization = `Bearer ${result.data.token}`
-    },
-
-    async register(event) {
-      const url = 'http://192.168.201.59:3001/register'
+    async formRequest(event) {
+      this.errors = []
+      const url = `http://192.168.201.59:3001/${event.formType}`
+      delete event.formType // ?
       this.isLoading = true
       const prom = axios.post(url, event)
       try {

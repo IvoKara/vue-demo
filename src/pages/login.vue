@@ -28,7 +28,7 @@ const smallText: Ref<SmallText> = ref({
     name="Login"
     :small-text="smallText"
     :is-loading="isLoading"
-    @on-submit="authStore.login"
+    @on-submit="authStore.formRequest"
   />
 </template>
 

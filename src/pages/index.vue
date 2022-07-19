@@ -13,7 +13,7 @@ const authStore = useUserStore()
   </Head>
   <main>
     This is home page
-    <button class="btn btn primary" @click="authStore.acc">
+    <button v-if="useUserStore().isLoggedIn" class="btn btn primary" @click="authStore.acc">
       Get Acc
     </button>
   </main>

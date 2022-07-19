@@ -2,6 +2,7 @@
 import type { Ref } from 'vue'
 import type { InputOptions, SmallText } from '@/types'
 import { useUserStore } from '@/stores/user'
+import router from '@/router'
 const props = defineProps<{
   name: string
   // inputOptions: InputOptions[]
@@ -21,6 +22,10 @@ const inputOptions: InputOptions[] = [
 ]
 
 const userStore = useUserStore()
+const route = useRoute()
+watch(() => route.path, () => {
+  userStore.errors = []
+})
 </script>
 
 <template>
@@ -36,7 +41,13 @@ const userStore = useUserStore()
     <h1 text-2xl>
       {{ name }}
     </h1>
-    <form @submit.prevent="$emit('onSubmit', { username, password })">
+    <form
+      @submit.prevent="$emit('onSubmit', {
+        username,
+        password,
+        formType: name.toLowerCase(),
+      })"
+    >
       <InputField
         v-for="opt in inputOptions" :key="opt.label"
         v-model:fieldValue="opt.targetRef.value" :section="opt"
