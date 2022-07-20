@@ -25,7 +25,7 @@ const { payload } = storeToRefs(userStore)
           transition-dark-light rounded-full w-10"
         >
           <span class="text-base">
-            {{ JSON.parse(payload).username.charAt(0) }}
+            {{ JSON.parse(payload)?.username.charAt(0) }}
           </span>
         </div>
       </div>

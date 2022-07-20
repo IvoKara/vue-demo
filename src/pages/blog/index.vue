@@ -2,7 +2,7 @@
 import { usePostsQuery } from '@/composables/postQuery'
 const slug = ref(0)
 const { data: post } = usePostsQuery(slug, {
-  enabled: computed(() => !!slug),
+  enabled: computed(() => !!slug.value),
 })
 </script>
 
@@ -24,7 +24,7 @@ const { data: post } = usePostsQuery(slug, {
         <h1 text-2xl font-bold mb-4>
           {{ post.title }}
         </h1>
-        <div bg-gray-200 w-18 h-18 rounded-full flex items-center justify-center>
+        <!-- <div bg-gray-200 w-18 h-18 rounded-full flex items-center justify-center>
           <div v-if="isUserLoading" i-carbon-user />
           <div v-else-if="isError" text-2xl font-bold text-red>
             {{ error }}
@@ -32,7 +32,7 @@ const { data: post } = usePostsQuery(slug, {
           <div v-else text-2xl font-bold>
             {{ user?.name.charAt(0) }}
           </div>
-        </div>
+        </div> -->
         <div>
           {{ post.body }}
         </div>

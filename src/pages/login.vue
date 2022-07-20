@@ -1,23 +1,58 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
+
 import jwt_decode from 'jwt-decode'
-
-import type { Axios } from 'axios'
-import axios from 'axios'
-import { storeToRefs } from 'pinia'
 import type { SmallText } from '@/types'
+import { useFormMutation } from '@/composables/formMutation'
 import { useUserStore } from '@/stores/user'
-import router from '@/router'
-
-const authStore = useUserStore()
-
-const { isLoading } = storeToRefs(authStore)
+import { axiosInstance } from '@/api/axiosInstance'
 
 const smallText: Ref<SmallText> = ref({
   text: 'Don\'t have a profile?',
   link: '/register',
   linkText: 'Register now!',
 })
+
+const userStore = useUserStore()
+const errors: Ref<any[]> = ref([])
+const url = 'http://192.168.201.59:3001/login'
+
+const { data, mutate, mutateAsync, isLoading, error: err } = useFormMutation(url, axiosInstance.value)
+const error: any = err
+
+async function login(event) {
+  await mutateAsync({ ...event, formType: null })
+  userStore.token = data.value?.data.token
+  if (userStore.token)
+    userStore.payload = JSON.stringify(jwt_decode(userStore.token))
+}
+
+//   errors.value = []
+//   const url = `http://192.168.201.59:3001/${event.formType}`
+
+//   isLoading.value = loading.value
+
+//   // const url = `http://192.168.201.59:3001/${event.formType}`
+//   // event = {
+//   //   ...event,
+//   //   formType: null,
+//   // }
+//   // const prom = axios.post(url, event)
+//   try {
+//     mutate({ ...event, forType: null })
+//     // const result = await prom
+//     console.log(data)
+//     // this.token = result.data.token
+//     // if (this.token)
+//     //   this.payload = JSON.stringify(jwt_decode(this.token))
+//   }
+//   catch (e: any) {
+//     errors.value.push(e)
+//   }
+//   finally {
+//     // this.isLoading = false
+//   }
+// }
 </script>
 
 <template>
@@ -28,8 +63,11 @@ const smallText: Ref<SmallText> = ref({
     name="Login"
     :small-text="smallText"
     :is-loading="isLoading"
-    @on-submit="authStore.formRequest"
+    @on-submit="login"
   />
+  <div class="text-error text-sm">
+    {{ error?.response.data }}
+  </div>
 </template>
 
 <route lang="yaml">

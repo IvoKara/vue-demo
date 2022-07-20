@@ -1,14 +1,12 @@
 import type { RemovableRef } from '@vueuse/core'
-import type { Axios } from 'axios'
 import axios from 'axios'
-import jwt_decode from 'jwt-decode'
 import { defineStore } from 'pinia'
 
 interface UserState {
   token: RemovableRef<any>
   payload: any
-  isLoading: boolean
-  errors: any[]
+  isLoading?: boolean
+  errors?: any[]
 }
 
 // useStore could be anything like useUser, useCart
@@ -17,8 +15,6 @@ export const useUserStore = defineStore('user', {
   state: (): UserState => ({
     token: useStorage('token', null),
     payload: useStorage('payload', null),
-    isLoading: false,
-    errors: [],
   }),
   getters: {
     isLoggedIn(state) {
@@ -31,29 +27,6 @@ export const useUserStore = defineStore('user', {
       this.payload = null
     },
 
-    async formRequest(event) {
-      this.errors = []
-      const url = `http://192.168.201.59:3001/${event.formType}`
-      event = {
-        ...event,
-        formType: null,
-      }
-      this.isLoading = true
-      const prom = axios.post(url, event)
-      try {
-        const result = await prom
-        this.token = result.data.token
-        if (this.token)
-          this.payload = JSON.stringify(jwt_decode(this.token))
-      }
-      catch (e: any) {
-        this.errors.push(e)
-      }
-      finally {
-        this.isLoading = false
-      }
-    },
-
     async acc() {
       if (this.token === null)
         return
@@ -64,7 +37,7 @@ export const useUserStore = defineStore('user', {
         },
       })
       const result = await api.get('acc')
-      console.log(result?.data)
+      return result?.data
     },
   },
 })
