@@ -1,8 +1,12 @@
 import { createApp } from 'vue'
 import { Head, createHead } from '@vueuse/head'
 import { createPinia } from 'pinia'
+import { VueQueryPlugin } from 'vue-query'
+import * as devtools from 'vue-query/devtools'
+
 import App from './App.vue'
 import router from './router'
+
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import '@/../node_modules/nprogress/nprogress.css'
@@ -17,7 +21,9 @@ const head = createHead()
 createApp(App)
   .use(head)
   .use(pinia)
+  .use(VueQueryPlugin)
   .use(router)
   .component('Head', Head)
+  .component('VueQueryDevTools', devtools.VueQueryDevTools)
   .mount('#app')
 

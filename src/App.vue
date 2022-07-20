@@ -13,6 +13,7 @@ import { axiosInstance } from './api/axiosInstance'
     justify-between
     overflow-x-hidden
   >
+    <VueQueryDevTools />
     <header relative>
       <!-- style="height: 60px;" -->
       <Navigation />

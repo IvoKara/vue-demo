@@ -2,12 +2,17 @@
 import type { Ref } from 'vue'
 import type { Post } from '@/types'
 import { indexPosts } from '@/api/postsEndpoints'
+import { usePostsQuery } from '@/composables/postQuery'
 
-const { data, error, isLoading } = indexPosts()
+const postId = ref(null)
+const { data, error, isFetching, isLoading } = usePostsQuery(postId, {
+  enabled: computed(() => !!postId),
+})
 </script>
 
 <template>
-  {{ isLoading }}
+  {{ isFetching }}
+
   <div flex flex-wrap gap-4 z-0 flex-1>
     <div v-if="isLoading" text-2xl mx-auto text-info-content>
       Loading...

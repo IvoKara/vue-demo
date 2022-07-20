@@ -4,7 +4,7 @@
   "compilerOptions": {
     "noImplicitAny": false,
     "types": ["vite-plugin-vue-layouts/client"],
-    "target": "ES5",
+    "target": "ES2022",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

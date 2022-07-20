@@ -24,6 +24,7 @@ export default defineConfig({
       defaultLayout: 'default',
     }),
     AutoImport({
+      dirs: ['composables', '@/api/axiosInstance'],
       imports: [
         'vue',
         'vue-router',

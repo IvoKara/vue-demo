@@ -25,5 +25,6 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SmallTextUnderForm: typeof import('./src/components/smallTextUnderForm.vue')['default']
     SocialIcon: typeof import('./src/components/SocialIcon.vue')['default']
+    UserIcon: typeof import('./src/components/UserIcon.vue')['default']
   }
 }

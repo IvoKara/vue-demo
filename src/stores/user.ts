@@ -34,7 +34,10 @@ export const useUserStore = defineStore('user', {
     async formRequest(event) {
       this.errors = []
       const url = `http://192.168.201.59:3001/${event.formType}`
-      delete event.formType // ?
+      event = {
+        ...event,
+        formType: null,
+      }
       this.isLoading = true
       const prom = axios.post(url, event)
       try {
