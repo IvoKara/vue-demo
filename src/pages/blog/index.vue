@@ -1,33 +1,19 @@
 <script setup lang="ts">
 import { usePostsQuery } from '@/composables/postQuery'
+
 const slug = ref(0)
 const { data: post } = usePostsQuery(slug, {
   enabled: computed(() => !!slug.value),
 })
 
-// const scTimer = ref(0)
-// const scY = ref(0)
-
-// function handleScroll() {
-//   if (scTimer.value)
-//     return
-//   scTimer.value = setTimeout(() => {
-//     scY.value = window.scrollY
-//     clearTimeout(scTimer.value)
-//     scTimer.value = 0
-//   }, 100)
-// }
 function backToTop() {
   window.scrollTo({
     top: 0,
     behavior: 'smooth',
   })
-  console.log('fire')
 }
 
-// onMounted(() => {
-//   window.addEventListener('scroll', handleScroll)
-// })
+const { y: scrollByY } = useScroll(window)
 </script>
 
 <template>
@@ -63,12 +49,20 @@ function backToTop() {
       </div>
     </div>
     <PostList v-else />
-    <button
-      my-4 mt-6 ml-5
-      class="btn btn-primary"
+    <!-- fixed bottom-0 right-7
+      transition-all-1000 ease="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
+      style="transform: translate3d(0px, 200%, 10px)" -->
+    <div
+      class="btn btn-secondary"
+      fixed bottom-4 right="1.5rem"
+      transition-transform-1000 transition="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
+      transform-gpu
+      :style="{
+        transform: scrollByY > 0 ? 'none' : 'translate3d(0px, 200%, 10px)',
+      }"
       @click="backToTop"
     >
       top
-    </button>
+    </div>
   </div>
 </template>

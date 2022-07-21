@@ -2,7 +2,7 @@
 import type { Ref } from 'vue'
 
 import jwt_decode from 'jwt-decode'
-import type { SmallText } from '@/types'
+import type { InputOptions, SmallText } from '@/types'
 import { useFormMutation } from '@/composables/formMutation'
 import { useUserStore } from '@/stores/user'
 import { axiosInstance } from '@/api/axiosInstance'
@@ -14,45 +14,27 @@ const smallText: Ref<SmallText> = ref({
 })
 
 const userStore = useUserStore()
-const errors: Ref<any[]> = ref([])
-const url = 'http://192.168.201.59:3001/login'
+const url = 'http://192.168.201.59:3002/login'
 
 const { data, mutate, mutateAsync, isLoading, error: err } = useFormMutation(url, axiosInstance.value)
 const error: any = err
 
 async function login(event) {
-  await mutateAsync({ ...event, formType: null })
+  console.log(event)
+
+  await mutateAsync(event)
   userStore.token = data.value?.data.token
   if (userStore.token)
     userStore.payload = JSON.stringify(jwt_decode(userStore.token))
 }
 
-//   errors.value = []
-//   const url = `http://192.168.201.59:3001/${event.formType}`
+const username: Ref<string> = ref('')
+const password: Ref<string> = ref('')
+const inputOptions: InputOptions[] = [
 
-//   isLoading.value = loading.value
-
-//   // const url = `http://192.168.201.59:3001/${event.formType}`
-//   // event = {
-//   //   ...event,
-//   //   formType: null,
-//   // }
-//   // const prom = axios.post(url, event)
-//   try {
-//     mutate({ ...event, forType: null })
-//     // const result = await prom
-//     console.log(data)
-//     // this.token = result.data.token
-//     // if (this.token)
-//     //   this.payload = JSON.stringify(jwt_decode(this.token))
-//   }
-//   catch (e: any) {
-//     errors.value.push(e)
-//   }
-//   finally {
-//     // this.isLoading = false
-//   }
-// }
+  { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
+  { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
+]
 </script>
 
 <template>

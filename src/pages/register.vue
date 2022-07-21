@@ -1,18 +1,29 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import { storeToRefs } from 'pinia'
+import jwt_decode from 'jwt-decode'
 import type { InputOptions, SmallText } from '@/types'
 import { useUserStore } from '@/stores/user'
-import router from '@/router'
+import { useFormMutation } from '@/composables/formMutation'
+import { axiosInstance } from '@/api/axiosInstance'
 
-const authStore = useUserStore()
-const { isLoading } = storeToRefs(authStore)
-
+const userStore = useUserStore()
 const smallText: Ref<SmallText> = ref({
   text: 'Already have a profile?',
-  link: '/login',
+  link: '/admin/login',
   linkText: 'Login here!',
 })
+
+const url = 'http://192.168.201.59:3002/register'
+const { data, mutateAsync, isLoading, error: err } = useFormMutation(url, axiosInstance.value)
+const error: any = err
+
+async function register(event) {
+  console.log(event)
+  await mutateAsync(event)
+  userStore.token = data.value?.data.token
+  if (userStore.token)
+    userStore.payload = JSON.stringify(jwt_decode(userStore.token))
+}
 </script>
 
 <template>
@@ -23,8 +34,12 @@ const smallText: Ref<SmallText> = ref({
     name="Register"
     :small-text="smallText"
     :is-loading="isLoading"
-    @on-submit="authStore.formRequest"
+    :has-confirm-pass="true"
+    @on-submit="register"
   />
+  <div class="text-error text-sm">
+    {{ error?.response.data }}
+  </div>
 </template>
 
 <route lang="yaml">

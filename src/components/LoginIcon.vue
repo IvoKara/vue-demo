@@ -11,7 +11,7 @@ const { payload } = storeToRefs(userStore)
     <div v-if="!userStore.isLoggedIn">
       <div class="avatar placeholder" cursor-pointer @click="userStore.logoff()">
         <div class="bg-base-content transition-dark-light text-base-100 rounded-full ">
-          <RouterLink to="/login">
+          <RouterLink to="/admin">
             <div i-mdi:user scale="~ 50px" />
           </RouterLink>
         </div>

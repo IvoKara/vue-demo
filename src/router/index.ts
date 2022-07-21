@@ -11,6 +11,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
+  // console.log(from)
+  // console.log(to)
   // NProgress.settings.showSpinner = false
   window.scrollTo(0, 0)
   NProgress.configure({

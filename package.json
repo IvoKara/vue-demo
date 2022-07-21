@@ -2,14 +2,15 @@
   "name": "demo-vue",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite & json-server db.json -p 3001",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview --port 4173",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "dev": "./node_modules/.bin/vite & json-server db.json -p 3001",
+    "build": "./node_modules/.bin/run-p type-check build-only",
+    "preview": "./node_modules/.bin/vite preview --port 4173",
+    "build-only": "./node_modules/.bin/vite build",
+    "type-check": "./node_modules/.bin/vue-tsc --noEmit",
+    "lint": "./node_modules/.bin/eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
+    "@vueuse/components": "^8.9.4",
     "@vueuse/core": "^8.9.1",
     "@vueuse/head": "^0.7.6",
     "@vueuse/integrations": "^8.9.2",

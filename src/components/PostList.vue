@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
+import { vIntersectionObserver } from '@vueuse/components'
 import type { Post } from '@/types'
-import { indexPosts } from '@/api/postsEndpoints'
 import { usePostInfiniteQuery, usePostsQuery } from '@/composables/postQuery'
 import router from '@/router'
 
@@ -20,15 +20,22 @@ const {
   isLoading,
   isError,
 } = usePostInfiniteQuery()
+
+const target = ref(null)
+const isVisible = ref(false)
+function onIntersectionObserver([{ isIntersecting }]) {
+  if (hasNextPage?.value && !isFetchingNextPage.value && isIntersecting)
+    fetchNextPage.value()
+}
 </script>
 
 <template>
-  {{ isFetching }}
-
   <div flex flex-wrap gap-4 z-0 flex-1>
-    <div v-if="isLoading" text-2xl mx-auto text-info-content>
-      Loading...
-    </div>
+    <template v-if="isLoading">
+      <div v-for="n in 10" :key="n" mx-auto>
+        <PostCard />
+      </div>
+    </template>
     <div v-else-if="error" text-2xl mx-auto text-red>
       {{ `Error: ${error}` }}
     </div>
@@ -42,6 +49,8 @@ const {
   </div>
   <hr my-10>
   <button
+    v-if="!isLoading"
+    v-intersection-observer="onIntersectionObserver"
     my-4
     mt-6
     class="btn btn-primary"

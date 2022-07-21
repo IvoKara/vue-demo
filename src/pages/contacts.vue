@@ -12,7 +12,3 @@
   </div>
 </template>
 
-<!-- <route lang="yaml">
-meta:
-  layout: sub/sublayout
-</route> -->

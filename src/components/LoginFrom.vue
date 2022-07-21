@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
-import type { InputOptions, SmallText } from '@/types'
+import type { Credentials, InputOptions, SmallText } from '@/types'
 import { useUserStore } from '@/stores/user'
-import router from '@/router'
 const props = defineProps<{
   name: string
   // inputOptions: InputOptions[]
+  hasConfirmPass?: boolean
   smallText: SmallText
   isLoading?: boolean
 }>()
@@ -13,19 +13,19 @@ const props = defineProps<{
 defineEmits(['onSubmit'])
 
 const username: Ref<string> = ref('')
-const email: Ref<string> = ref('')
 const password: Ref<string> = ref('')
+const confirmPass: Ref<string> = ref('')
 const inputOptions: InputOptions[] = [
 
   { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
   { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
 ]
 
-const userStore = useUserStore()
-const route = useRoute()
-watch(() => route.path, () => {
-  userStore.errors = []
-})
+if (props.hasConfirmPass === true) {
+  inputOptions.push(
+    { label: 'Confirm password', type: 'password', placeholder: 'Confirm', targetRef: confirmPass },
+  )
+}
 </script>
 
 <template>
@@ -45,7 +45,8 @@ watch(() => route.path, () => {
       @submit.prevent="$emit('onSubmit', {
         username,
         password,
-        formType: name.toLowerCase(),
+        confirmPass: hasConfirmPass ? confirmPass : undefined,
+        method: name.toLowerCase(),
       })"
     >
       <InputField
@@ -62,11 +63,5 @@ watch(() => route.path, () => {
     <SmallTextUnderForm
       :options="smallText"
     />
-    <div
-      v-for="error in userStore.errors" :key="error"
-      class="text-error text-sm"
-    >
-      {{ error.response.data }}
-    </div>
   </div>
 </template>

@@ -26,3 +26,9 @@ export interface SmallText {
   link: string
   linkText: string
 }
+
+export interface Credentials {
+  username: string
+  password: string
+  confirmPass?: string
+}

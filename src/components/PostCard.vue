@@ -1,17 +1,14 @@
 <script setup lang="ts">
 import type { Post } from '@/types'
 
-const props = defineProps<{
-  content: Post
-}>()
+const props = defineProps(['content'])
 
-const post: Post = props.content
+const post: Post | null = props.content
 const imageLoaded = ref(false)
 </script>
 
 <template>
   <div
-    v-if="post"
     class="
       card card-normal
       w-96 h-140
@@ -29,10 +26,18 @@ const imageLoaded = ref(false)
       >
     </figure>
     <div class="card-body">
-      <h2 class="card-title text-left ">
+      <h2 v-if="post" class="card-title text-left">
         {{ `${post.id} ${post?.title}` }}
       </h2>
-      <p>{{ post?.body?.slice(0, 100).concat('...') }}</p>
+      <h2 v-else class="card-title text-left">
+        Loading...
+      </h2>
+      <p v-if="post">
+        {{ post?.body?.slice(0, 100).concat('...') }}
+      </p>
+      <p v-else>
+        Loading content...
+      </p>
       <div class="card-actions justify-end">
         <RouterLink
           :to="`/blog/${post?.id}`" class="btn btn-primary-content"
