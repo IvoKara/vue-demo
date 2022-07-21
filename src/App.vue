@@ -5,15 +5,13 @@ import { axiosInstance } from './api/axiosInstance'
 
 <template>
   <div
-    ref="scroll"
-    w-screen
+    w-full
     h-screen
     flex
     flex-col
     justify-between
-    overflow-x-hidden
   >
-    <VueQueryDevTools />
+    <!-- <VueQueryDevTools /> -->
     <header relative>
       <!-- style="height: 60px;" -->
       <Navigation />

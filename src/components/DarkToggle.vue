@@ -21,7 +21,7 @@ function stopDrag() {
   <!-- <button class="btn btn-circle btn-ghost !outline-none" title="Toggle dark mode" @click="toggleDark()">
     <div i="carbon-sun dark:carbon-moon" text-lg />
   </button> -->
-  <div absolute top-2 right-2 :style="st" @mousedown="dragMe" @mouseup="stopDrag">
+  <div absolute top-2 right-7 :style="st" @mousedown="dragMe" @mouseup="stopDrag">
     <label class="swap swap-rotate b-2 rounded-full hover:border-primary-focus p-1.25">
       <!-- this hidden checkbox controls the state -->
       <input type="checkbox" @click="toggleDark()">

@@ -3,6 +3,7 @@ import type { Ref } from 'vue'
 import type { Post } from '@/types'
 import { indexPosts } from '@/api/postsEndpoints'
 import { usePostInfiniteQuery, usePostsQuery } from '@/composables/postQuery'
+import router from '@/router'
 
 // const postId = ref(null)
 // const { data, error, isFetching, isLoading } = usePostsQuery(postId, {
@@ -50,15 +51,6 @@ const {
     <span v-if="isFetchingNextPage">Loading more...</span>
     <span v-else-if="hasNextPage">Load More</span>
     <span v-else>Nothing more to load</span>
-  </button>
-  <button
-    my-4
-    mt-6
-    class="btn btn-primary"
-
-    @click="() => window.scrollTo({ top: 0 })"
-  >
-    top
   </button>
 </template>
 

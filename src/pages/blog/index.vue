@@ -4,6 +4,30 @@ const slug = ref(0)
 const { data: post } = usePostsQuery(slug, {
   enabled: computed(() => !!slug.value),
 })
+
+// const scTimer = ref(0)
+// const scY = ref(0)
+
+// function handleScroll() {
+//   if (scTimer.value)
+//     return
+//   scTimer.value = setTimeout(() => {
+//     scY.value = window.scrollY
+//     clearTimeout(scTimer.value)
+//     scTimer.value = 0
+//   }, 100)
+// }
+function backToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+  console.log('fire')
+}
+
+// onMounted(() => {
+//   window.addEventListener('scroll', handleScroll)
+// })
 </script>
 
 <template>
@@ -39,5 +63,12 @@ const { data: post } = usePostsQuery(slug, {
       </div>
     </div>
     <PostList v-else />
+    <button
+      my-4 mt-6 ml-5
+      class="btn btn-primary"
+      @click="backToTop"
+    >
+      top
+    </button>
   </div>
 </template>

@@ -12,6 +12,7 @@ import 'uno.css'
 import '@/../node_modules/nprogress/nprogress.css'
 import '@/../node_modules/daisyui/dist/full.css'
 import '@/../node_modules/daisyui/dist/themes.css'
+import '@/assets/base.css'
 
 // const payload = ref(JSON.parse(localStorage.getItem('payload')))
 // console.log(payload)
