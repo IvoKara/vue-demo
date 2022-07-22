@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const inst = axios.create({
-  // baseURL: 'https://jsonplaceholder.typicode.com',
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://jsonplaceholder.typicode.com',
+  // baseURL: 'http://localhost:3001',
 
 })
 
