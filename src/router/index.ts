@@ -4,19 +4,6 @@ import * as NProgress from 'nprogress'
 import generatedRoutes from '~pages'
 import { useUserStore } from '@/stores/user'
 
-// generatedRoutes.push({
-//   path: '/admin',
-//   name: 'admin',
-//   meta: { layout: 'admin' },
-//   component: () => import('@/pages/admin/index.vue'),
-//   beforeEnter: (to, from, next) => {
-//     if (useUserStore().token === null)
-//       next('/admin/login')
-//     else
-//       next()
-//   },
-// })
-
 const routes = setupLayouts(generatedRoutes)
 
 const router = createRouter({
@@ -25,9 +12,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-  // console.log(from)
-  // console.log(to)
-  // NProgress.settings.showSpinner = false
   if (to.meta.requiresAuth) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.

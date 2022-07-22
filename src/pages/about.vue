@@ -10,8 +10,8 @@ const isIdle = useIdle(400)
   </Head>
   <div>
     <PageHeading value="About" />
-    {{ isIdle }}
-    <span :title="re" :class="isIdle.idle.value === true ? 'text-amber' : 'text-green'"> HOVER MEL {{ re }}</span>
+    <!-- {{ isIdle }}
+    <span :title="re" :class="isIdle.idle.value === true ? 'text-amber' : 'text-green'"> HOVER MEL {{ re }}</span> -->
     <div flex justify-around items-center max-w-4xl mx-auto flex-wrap sm:flex-nowrap>
       <img h-100 alt="img" src="/KrisProfilePhoto.jpg" width="267" height="400">
       <p lg:shrink font-montserrat text-2xl prose-slate max-w-130>

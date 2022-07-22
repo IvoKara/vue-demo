@@ -23,7 +23,7 @@ const { x, y } = useMouse()
     <nav text-center font-montserrat text-lg w-screen class="bg-base-100" flex items-center justify-center>
       <ul flex items-center>
         <li v-for="(item, i) in items" :key="i" m-4>
-          <RouterLink :to="item.link" active-class="text-primary-focus font-600">
+          <RouterLink :to="item.link" active-class="text-amber-950 dark:text-[#c75404ed] font-600">
             {{ item.name }}
           </RouterLink>
         </li>
@@ -31,7 +31,7 @@ const { x, y } = useMouse()
       <LoginIcon />
     </nav>
     <DarkToggle />
-    <div class="bg-primary-focus" font- w-130 h="0.5" mx-auto />
+    <div class="bg-[#926511] dark:bg-amber-700" font- w-130 h="0.5" mx-auto />
     {{ x }}
     {{ y }}
     <!-- <div v-if="payload !== {}" class="avatar placeholder">
@@ -41,3 +41,9 @@ const { x, y } = useMouse()
     </div> -->
   </div>
 </template>
+
+<style scoped>
+.line-color {
+  background-color: rgb(149 101 17);
+}
+</style>

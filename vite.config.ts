@@ -52,6 +52,8 @@ export default defineConfig({
       rules: [
         ['text-2xs', { 'font-size': '0.75rem', 'line-height': '1rem;' }],
         ['transition-dark-light', { transition: 'all 1s cubic-bezier(0.3, 0.04, 0.11, 1.02)' }],
+        ['text-amber-950', { color: 'rgba(113, 77, 14, 0.97)' }],
+        ['bg-amber-950', { 'background-color': 'rgba(113, 77, 14, 0.97)' }],
       ],
     }),
   ],
