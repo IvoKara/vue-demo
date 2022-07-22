@@ -6,7 +6,6 @@ import Layouts from 'vite-plugin-vue-layouts'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import Unocss from 'unocss/vite'
-
 import { presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 
 // https://vitejs.dev/config/
@@ -18,7 +17,9 @@ export default defineConfig({
       dirs: ['./src/components/', './node_modules/@vueuse/head/**/*'],
 
     }),
-    Pages(),
+    Pages({
+      // exclude: ['**/admin/index.vue'],
+    }),
     Layouts({
       layoutsDirs: 'src/layouts',
       defaultLayout: 'default',

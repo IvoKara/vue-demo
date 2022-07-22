@@ -10,4 +10,5 @@
 <route lang="yaml">
 meta:
   layout: admin
+  requiresAuth: true
 </route>
