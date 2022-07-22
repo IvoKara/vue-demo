@@ -12,7 +12,9 @@ const { payload } = storeToRefs(userStore)
       <div class="avatar placeholder" cursor-pointer @click="userStore.logoff()">
         <div class="bg-base-content transition-dark-light text-base-100 rounded-full ">
           <RouterLink to="/admin">
-            <div i-mdi:user scale="~ 50px" />
+            <div i-mdi:user scale="~ 50px">
+              <span sr-only>Link to login page</span>
+            </div>
           </RouterLink>
         </div>
       </div>
