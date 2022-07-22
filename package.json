@@ -1,6 +1,10 @@
 {
   "name": "demo-vue",
   "version": "0.0.0",
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  },
   "scripts": {
     "dev": "./node_modules/.bin/vite & json-server db.json -p 3001",
     "build": "./node_modules/.bin/run-p type-check build-only",
@@ -49,4 +53,5 @@
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.38.1"
   }
+
 }
