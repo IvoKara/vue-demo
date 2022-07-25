@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Head, createHead } from '@vueuse/head'
 import { createPinia } from 'pinia'
 import { VueQueryPlugin } from 'vue-query'

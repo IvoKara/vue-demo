@@ -18,7 +18,7 @@ export function usePostInfiniteQuery() {
     'posts',
     fetchPosts,
     {
-      getNextPageParam: (lastPage, pages) => {
+      getNextPageParam: (lastPage, pages) => { // eslint-disable-line @typescript-eslint/no-unused-vars
         const nextPage = (lastPage.data[lastPage.data.length - 1].id / 10) + 1
         const maxPage = Number(lastPage.headers['x-total-count']) / 10
         return maxPage < nextPage

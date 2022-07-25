@@ -10,6 +10,7 @@ const router = createRouter({
   routes,
 })
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 router.beforeEach((to, from) => {
   if (to.meta.requiresAuth) {
     // this route requires auth, check if logged in
