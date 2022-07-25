@@ -1,13 +1,14 @@
 <script setup lang="ts">
-const renderTime = ref(new Date('2022-07-09'))
-const re = useTimeAgo(renderTime.value)
-const isIdle = useIdle(400)
+// const renderTime = ref(new Date('2022-07-09'))
+// const re = useTimeAgo(renderTime.value)
+// const isIdle = useIdle(400)
+
+useHead({
+  title: 'About',
+})
 </script>
 
 <template>
-  <Head>
-    <title>About</title>
-  </Head>
   <div>
     <PageHeading value="About" />
     <!-- {{ isIdle }}
@@ -27,13 +28,3 @@ const isIdle = useIdle(400)
 meta:
   layout: default
 </route>
-
-<style>
-/* @media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-} */
-</style>

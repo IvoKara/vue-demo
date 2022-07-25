@@ -14,12 +14,13 @@ function backToTop() {
 }
 
 const { y: scrollByY } = useScroll(window)
+
+useHead({
+  title: 'Blog',
+})
 </script>
 
 <template>
-  <Head>
-    <title>Blog</title>
-  </Head>
   <div>
     <PageHeading value="Blog" />
     <input

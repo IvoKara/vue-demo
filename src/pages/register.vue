@@ -18,18 +18,20 @@ const { data, mutateAsync, isLoading, error: err } = useFormMutation(url, axiosI
 const error: any = err
 
 async function register(event) {
+  // eslint-disable-next-line no-console
   console.log(event)
   await mutateAsync(event)
   userStore.token = data.value?.data.token
   if (userStore.token)
     userStore.payload = JSON.stringify(jwt_decode(userStore.token))
 }
+
+useHead({
+  title: 'Register',
+})
 </script>
 
 <template>
-  <Head>
-    <title>Register</title>
-  </Head>
   <LoginFrom
     name="Register"
     :small-text="smallText"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 useHead({
-  title: computed(() => 'Portfolio'),
+  title: 'Portfolio',
 })
 </script>
 
@@ -10,10 +10,3 @@ useHead({
   </div>
 </template>
 
-<!-- <route>
-{
-  meta: {
-    layout: "second"
-  }
-}
-</route> -->

@@ -20,6 +20,7 @@ const { data, mutate, mutateAsync, isLoading, error: err } = useFormMutation(url
 const error: any = err
 
 async function login(event) {
+  // eslint-disable-next-line no-console
   console.log(event)
 
   await mutateAsync(event)
@@ -35,12 +36,13 @@ const inputOptions: InputOptions[] = [
   { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
   { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
 ]
+
+useHead({
+  title: 'Login',
+})
 </script>
 
 <template>
-  <Head>
-    <title>Login</title>
-  </Head>
   <LoginFrom
     name="Login"
     :small-text="smallText"

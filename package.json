@@ -9,9 +9,10 @@
     "dev": "./node_modules/.bin/vite & json-server db.json -p 3001",
     "build": "./node_modules/.bin/run-p type-check build-only",
     "preview": "./node_modules/.bin/vite preview --port 4173",
-    "build-only": "./node_modules/.bin/vite build",
+    "build-only": "./node_modules/.bin/vite-ssg build",
     "type-check": "./node_modules/.bin/vue-tsc --noEmit",
-    "lint": "./node_modules/.bin/eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "./node_modules/.bin/eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore",
+    "lint:fix": "./node_modules/.bin/eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --ignore-path .gitignore --fix"
   },
   "dependencies": {
     "@vueuse/components": "^8.9.4",
@@ -50,8 +51,8 @@
     "vite": "^3.0.2",
     "vite-plugin-pages": "^0.25.0",
     "vite-plugin-vue-layouts": "^0.6.0",
+    "vite-ssg": "^0.20.2",
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.38.1"
   }
-
 }

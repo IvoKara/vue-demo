@@ -1,8 +1,3 @@
-<!-- <script setup lang="ts">
-import { useAxios } from '@vueuse/integrations'
-import { axiosInstance } from './api/axiosInstance'
-</script> -->
-
 <template>
   <div
     w-full
@@ -13,18 +8,10 @@ import { axiosInstance } from './api/axiosInstance'
   >
     <!-- <VueQueryDevTools /> -->
     <header relative>
-      <!-- style="height: 60px;" -->
       <Navigation />
     </header>
-    <!-- <div class="mx-auto w-80">
-        <ul v-for="(item, i) in list" :key="i">
-          <li :style="item.isNew ? 'color:red;' : 'color:blue'">{{ item.name }}</li>
-        </ul> -->
     <RouterView />
-    <!-- <button @click="more">Click me!</button>
-      </div> -->
     <footer transition-dark-light text-center class="bg-neutral-800 dark:bg-amber-700/87 text-white">
-      <!-- style="height:160px" -->
       <p font-oswald text-3xl py-4>
         Sofia, Bulgaria | chrisparvanov17@gmail.com | Tel: +359-87-698-8867
       </p>

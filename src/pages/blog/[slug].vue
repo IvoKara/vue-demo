@@ -2,8 +2,6 @@
 const props = defineProps<{
   slug: string
 }>()
-
-const postId = ref(props.slug)
 </script>
 
 <template>

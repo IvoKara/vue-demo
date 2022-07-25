@@ -2,7 +2,6 @@ import { setupLayouts } from 'virtual:generated-layouts'
 import { createRouter, createWebHistory } from 'vue-router'
 import * as NProgress from 'nprogress'
 import generatedRoutes from '~pages'
-import { useUserStore } from '@/stores/user'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -14,7 +13,8 @@ const router = createRouter({
 router.beforeEach((to, from) => {
   if (to.meta.requiresAuth) {
     // this route requires auth, check if logged in
-    // if not, redirect to login page.
+    // if not, redirect to login page
+    // eslint-disable-next-line no-console
     console.log(to)
     return {
       path: '/admin/login',

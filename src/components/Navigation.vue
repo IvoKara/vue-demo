@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia'
 import type { Ref } from 'vue'
-import { useUserStore } from '@/stores/user'
 
 interface MenuItem {
   name: string
@@ -15,7 +13,7 @@ const items: Ref<MenuItem[]> = ref([
   { name: 'About', link: '/about' },
   { name: 'Contacts', link: '/contacts' },
 ])
-const { x, y } = useMouse()
+// const { x, y } = useMouse()
 </script>
 
 <template>
@@ -32,18 +30,7 @@ const { x, y } = useMouse()
     </nav>
     <DarkToggle />
     <div class="bg-[#926511] dark:bg-amber-700" font- w-130 h="0.5" mx-auto />
-    {{ x }}
-    {{ y }}
-    <!-- <div v-if="payload !== {}" class="avatar placeholder">
-      <div class="bg-neutral-focus text-neutral-content rounded-full w-16">
-        <span class="text-xl">{{ payload }}</span>
-      </div>
-    </div> -->
+    <!-- {{ x }}
+    {{ y }} -->
   </div>
 </template>
-
-<style scoped>
-.line-color {
-  background-color: rgb(149 101 17);
-}
-</style>

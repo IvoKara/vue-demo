@@ -1,7 +1,10 @@
+<script setup lang="ts">
+useHead({
+  title: 'Not Found',
+})
+</script>
+
 <template>
-  <Head>
-    <title>Not found</title>
-  </Head>
   <div>
     <p>
       Page not found

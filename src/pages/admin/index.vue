@@ -1,4 +1,7 @@
 <script setup lang="ts">
+useHead({
+  title: 'Admin Panel',
+})
 </script>
 
 <template>

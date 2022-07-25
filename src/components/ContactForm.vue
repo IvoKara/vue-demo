@@ -3,9 +3,9 @@ import type { Ref } from 'vue'
 import { isFieldEmpty, isValidMail } from '../composables/validateMail'
 
 const nameRef = ref('')
-const { undo, redo, history } = useRefHistory(nameRef)
-onKeyStroke(['ctrl', 'z'], () => undo)
-onKeyStroke(['ctrl', 'shifht', 'z'], () => redo)
+// const { undo, redo, history } = useRefHistory(nameRef)
+// onKeyStroke(['ctrl', 'z'], () => undo)
+// onKeyStroke(['ctrl', 'shifht', 'z'], () => redo)
 
 const email = ref('')
 const message = ref('')
@@ -59,9 +59,9 @@ watch(email, (val) => {
 </script>
 
 <template>
-  <div v-for="state in history" :key="state">
+  <!-- <div v-for="state in history" :key="state">
     {{ state }}
-  </div>
+  </div> -->
   <form mx-auto w-100 text-left @submit.prevent="(e) => sendMail(e as SubmitEvent)">
     <label for="name" w-full>
       <p font-oswald>Name:</p>

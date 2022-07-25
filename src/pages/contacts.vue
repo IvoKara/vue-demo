@@ -1,11 +1,10 @@
 <script setup lang="ts">
-
+useHead({
+  title: 'Contacts',
+})
 </script>
 
 <template>
-  <Head>
-    <title>Contacts</title>
-  </Head>
   <div>
     <PageHeading value="Contacts" />
     <ContactForm />
