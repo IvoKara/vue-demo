@@ -1,3 +1,4 @@
+import type { ViteSSGContext } from 'vite-ssg'
 import type { Ref } from 'vue'
 
 export interface Post {
@@ -32,3 +33,5 @@ export interface Credentials {
   password: string
   confirmPass?: string
 }
+
+export type UserModule = (ctx: ViteSSGContext) => void

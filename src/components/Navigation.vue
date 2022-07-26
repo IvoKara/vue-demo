@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { breakpointsTailwind } from '@vueuse/core'
 import type { Ref } from 'vue'
 
 interface MenuItem {
@@ -14,10 +15,13 @@ const items: Ref<MenuItem[]> = ref([
   { name: 'Contacts', link: '/contacts' },
 ])
 // const { x, y } = useMouse()
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const md = breakpoints.smaller('md')
 </script>
 
 <template>
-  <div fixed z-1>
+  <div v-if="!md" fixed z-1>
     <nav text-center font-montserrat text-lg w-screen class="bg-base-100" flex items-center justify-center>
       <ul flex items-center>
         <li v-for="(item, i) in items" :key="i" m-4>

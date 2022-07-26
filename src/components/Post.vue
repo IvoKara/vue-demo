@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePostsQuery } from '@/composables/postQuery'
+// import { usePostsQuery } from '@/composables/postQuery'
 
 const props = defineProps<{
   id: number | string
@@ -7,16 +7,17 @@ const props = defineProps<{
 
 const postId = ref(props.id)
 
-const { data: post } = usePostsQuery(postId, {
-  enabled: computed(() => !!postId),
-})
+// const { data: post } = usePostsQuery(postId, {
+//   enabled: computed(() => !!postId),
+// })
 
-const userId = computed(() => post.value?.userId)
-const enabled = computed(() => !!post.value?.userId)
+// const userId = computed(() => post.value?.userId)
+// const enabled = computed(() => !!post.value?.userId)
 </script>
 
 <template>
-  <article v-if="post" max-w-200 text-base-content mx-auto mt-10>
+  <div />
+  <!-- <article v-if="post" max-w-200 text-base-content mx-auto mt-10>
     <h1 text-2xl font-bold mb-4>
       {{ post.title }}
     </h1>
@@ -27,6 +28,6 @@ const enabled = computed(() => !!post.value?.userId)
     <div mb-4>
       {{ post.body }}
     </div>
-  </article>
+  </article> -->
 </template>
 

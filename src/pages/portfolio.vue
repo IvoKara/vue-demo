@@ -6,7 +6,7 @@ useHead({
 
 <template>
   <div>
-    <PageHeading value="Portrait Gallery" />
+    <PageHeading>Portrait Gallery</PageHeading>
   </div>
 </template>
 

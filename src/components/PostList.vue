@@ -3,7 +3,6 @@ import type { Ref } from 'vue'
 import { vIntersectionObserver } from '@vueuse/components'
 import type { Post } from '@/types'
 import { usePostInfiniteQuery, usePostsQuery } from '@/composables/postQuery'
-import router from '@/router'
 
 // const postId = ref(null)
 // const { data, error, isFetching, isLoading } = usePostsQuery(postId, {

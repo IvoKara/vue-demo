@@ -25,7 +25,7 @@ export default defineConfig({
       defaultLayout: 'default',
     }),
     AutoImport({
-      dirs: ['composables', '@/api/axiosInstance'],
+      dirs: ['composables'],
       imports: [
         'vue',
         'vue-router',
@@ -57,9 +57,16 @@ export default defineConfig({
       ],
     }),
   ],
+  // ssgOptions: {
+  //   script: 'async',
+  //   formatting: 'minify',
+  // },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  build: {
+    cssCodeSplit: true,
   },
 })

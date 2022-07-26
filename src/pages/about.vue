@@ -10,7 +10,7 @@ useHead({
 
 <template>
   <div>
-    <PageHeading value="About" />
+    <PageHeading>About</PageHeading>
     <!-- {{ isIdle }}
     <span :title="re" :class="isIdle.idle.value === true ? 'text-amber' : 'text-green'"> HOVER MEL {{ re }}</span> -->
     <div flex justify-around items-center max-w-4xl mx-auto flex-wrap sm:flex-nowrap>

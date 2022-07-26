@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { onBeforeRouteUpdate } from 'vue-router'
-import { useUserStore } from '@/stores/user'
+// import { onBeforeRouteUpdate } from 'vue-router'
+// import { useUserStore } from '@/stores/user'
 
-const route = useRoute()
-const router = useRouter()
-const userStore = useUserStore()
+// const router = useRouter()
+// const userStore = useUserStore()
 
 // watch(() => route.params, () => {
 //   console.log(route.fullPath)
@@ -13,7 +12,7 @@ const userStore = useUserStore()
 // })
 
 // router.beforeEach((to, from) => {
-//   if (useUserStore().token === null && to.name !== 'admin-login') {
+//   if (userStore.token === null && to.name !== 'admin-login') {
 //     return {
 //       replace: true,
 //       name: 'admin-login',

@@ -3,6 +3,8 @@ export const isDark = useDark({
   attribute: 'data-theme',
   valueLight: 'bumblebee',
   onChanged(isItDark) {
+    if (import.meta.env.SSR)
+      return
     const theHTML = document.querySelector('html')
     if (!theHTML)
       return

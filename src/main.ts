@@ -1,30 +1,22 @@
-import { createApp } from 'vue'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Head, createHead } from '@vueuse/head'
-import { createPinia } from 'pinia'
-import { VueQueryPlugin } from 'vue-query'
+// import { VueQueryPlugin } from 'vue-query'
 // import * as devtools from 'vue-query/devtools'
-
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
-import router from './router'
+import { routes } from './router'
 
 import '@unocss/reset/tailwind.css'
 import 'uno.css'
 import '@/../node_modules/nprogress/nprogress.css'
 import '@/../node_modules/daisyui/dist/full.css'
 import '@/../node_modules/daisyui/dist/themes.css'
-import '@/assets/base.css'
+import type { UserModule } from './types'
+// import '@/assets/base.css'
 
-const pinia = createPinia()
-const head = createHead()
-createApp(App)
-  .use(head)
-  .use(pinia)
-  .use(VueQueryPlugin)
-  .use(router)
-  /* .
-    component('Head', Head)
-    .component('VueQueryDevTools', devtools.VueQueryDevTools)
-  */
-  .mount('#app')
-
+export const createApp = ViteSSG(
+  App,
+  { routes },
+  (ctx) => {
+    Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
+      .forEach(i => i.install?.(ctx))
+  },
+)

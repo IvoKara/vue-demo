@@ -13,11 +13,8 @@ useHead({
 </script>
 
 <template>
-  <!-- <Head>
-    <title>Home</title>
-  </Head> -->
   <main>
-    This is home page
+    <p>This is home page</p>
     <button v-if="authStore.isLoggedIn" class="btn btn primary" @click="getAccs">
       Get Acc
     </button>

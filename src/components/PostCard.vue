@@ -1,22 +1,27 @@
 <script setup lang="ts">
+import { breakpointsTailwind } from '@vueuse/core'
 import type { Post } from '@/types'
 
 const props = defineProps(['content'])
 
 const post: Post | null = props.content
 const imageLoaded = ref(false)
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const sm = breakpoints.smaller('sm')
+const md = breakpoints.between('sm', 'md')
 </script>
 
 <template>
   <div
     class="
       card card-normal
-      w-96 h-140
+      max-w-96 max-h-140
       bg-primary text-primary-content
       shadow-lg dark:shadow-stone-700
       transition-dark-light"
   >
-    <figure w="400px" h="250px">
+    <figure max-w="400px" max-h="250px">
       <img
         src="https://picsum.photos/400/250"
         alt="Picture"
@@ -26,11 +31,13 @@ const imageLoaded = ref(false)
       >
     </figure>
     <div class="card-body">
-      <h2 v-if="post" class="card-title text-left">
-        {{ `${post.id} ${post?.title}` }}
-      </h2>
-      <h2 v-else class="card-title text-left">
-        Loading...
+      <h2>
+        <span v-if="post" class="card-title text-left text-3xl">
+          {{ `${post.id} ${post?.title}` }}
+        </span>
+        <span v-else class="card-title text-left">
+          Loading...
+        </span>
       </h2>
       <p v-if="post">
         {{ post?.body?.slice(0, 100).concat('...') }}

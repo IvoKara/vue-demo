@@ -11,7 +11,7 @@ const { payload } = storeToRefs(userStore)
     <div v-if="!userStore.isLoggedIn">
       <div class="avatar placeholder" cursor-pointer @click="userStore.logoff()">
         <div class="bg-base-content transition-dark-light text-base-100 rounded-full ">
-          <RouterLink to="/admin">
+          <RouterLink to="/admin/login">
             <div i-mdi:user scale="~ 50px">
               <span sr-only>Link to login page</span>
             </div>
@@ -24,7 +24,7 @@ const { payload } = storeToRefs(userStore)
         <div
           class="bg-base-content text-base-100
             ring-primary-focus ring-2 ring-offset-base-100
-          transition-dark-light rounded-full w-10"
+            transition-dark-light rounded-full w-10"
         >
           <span class="text-base">
             {{ JSON.parse(payload)?.username.charAt(0) }}

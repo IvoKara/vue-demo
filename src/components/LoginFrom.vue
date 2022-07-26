@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import type { Credentials, InputOptions, SmallText } from '@/types'
-import { useUserStore } from '@/stores/user'
+
 const props = defineProps<{
   name: string
-  // inputOptions: InputOptions[]
   hasConfirmPass?: boolean
   smallText: SmallText
   isLoading?: boolean

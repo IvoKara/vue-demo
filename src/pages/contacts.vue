@@ -6,7 +6,7 @@ useHead({
 
 <template>
   <div>
-    <PageHeading value="Contacts" />
+    <PageHeading>Contacts</PageHeading>
     <ContactForm />
   </div>
 </template>

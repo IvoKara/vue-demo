@@ -5,6 +5,7 @@ const props = defineProps<{
 </script>
 
 <template>
+  Here
   <Post :id="props.slug" />
   <RouterLink
     to="/blog" class="btn btn-primary"

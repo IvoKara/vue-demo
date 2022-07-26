@@ -20,9 +20,6 @@ const { data, mutate, mutateAsync, isLoading, error: err } = useFormMutation(url
 const error: any = err
 
 async function login(event) {
-  // eslint-disable-next-line no-console
-  console.log(event)
-
   await mutateAsync(event)
   userStore.token = data.value?.data.token
   if (userStore.token)

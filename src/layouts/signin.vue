@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import router from '@/router'
 import { useUserStore } from '@/stores/user'
 
+const router = useRouter()
 const authStore = useUserStore()
 onBeforeMount(() => {
   if (authStore.isLoggedIn)

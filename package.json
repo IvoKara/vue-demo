@@ -38,6 +38,7 @@
     "@vitejs/plugin-vue": "^3.0.1",
     "@vue/eslint-config-typescript": "^11.0.0",
     "@vue/tsconfig": "^0.1.3",
+    "critters": "^0.0.16",
     "daisyui": "^2.18.0",
     "eslint": "^8.5.0",
     "eslint-plugin-vue": "^9.0.0",
