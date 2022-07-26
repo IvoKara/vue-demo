@@ -1,15 +1,4 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
-onMounted(() => {
-  function backToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
-})
-
 useHead({
   title: 'Blog',
 })
@@ -49,21 +38,5 @@ useHead({
     <!-- fixed bottom-0 right-7
         transition-all-1000 ease="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
         style="transform: translate3d(0px, 200%, 10px)" -->
-    <!-- <ClientOnly>
-      <div v-if="scrollByY">
-        <div
-          class="btn btn-secondary"
-          fixed bottom-4 right="1.5rem"
-          transition-transform-1000 transition="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
-          transform-gpu
-          :style="{
-            transform: scrollByY > 0 ? 'none' : 'translate3d(0px, 200%, 10px)',
-          }"
-          @click="backToTop"
-        >
-          top
-        </div>
-      </div>
-    </ClientOnly> -->
   </div>
 </template>
