@@ -1,37 +1,25 @@
 <script setup lang="ts">
 const watchScroll = ref<HTMLElement | null>(null)
-const { y: scrollByY } = useScroll(watchScroll)
 
-function backToTop() {
-  watchScroll.value.$el.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  })
-}
+provide('window', watchScroll)
 </script>
 
 <template>
-  <RouterView ref="watchScroll" style="overflow: auto" />
-  <ClientOnly>
-    <div v-if="watchScroll !== null">
-      <div
-        class="btn btn-secondary"
-        fixed bottom-4 right="1.5rem"
-        transition-transform-1000 transition="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
-        transform-gpu
-        :style="{
-          transform: scrollByY > 0 ? 'none' : 'translate3d(0px, 200%, 10px)',
-        }"
-        @click="backToTop"
-      >
-        top
-      </div>
-    </div>
-  </ClientOnly>
+  <div
+    ref="watchScroll"
+    transition-dark-light scroll-smooth
+    scrollbar="~
+      rounded
+      track-radius-0
+      track-color-neutral-200 thumb-color-neutral-400
+      dark:track-color-stone-600 dark:thumb-color-neutral-300"
+  >
+    <RouterView />
+  </div>
 </template>
 
 <style>
-body {
+html {
   overflow: hidden;
 }
 .ps {

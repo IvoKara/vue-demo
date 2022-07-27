@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-  <main>
+  <div>
     <p>This is home page</p>
     <button v-if="authStore.isLoggedIn" class="btn btn primary" @click="getAccs">
       Get Acc
@@ -21,5 +21,5 @@ useHead({
     <div v-for="acc in accs" :key="acc">
       {{ acc }}
     </div>
-  </main>
+  </div>
 </template>

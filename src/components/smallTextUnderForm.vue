@@ -10,7 +10,7 @@ defineProps<{
   <small>
     {{ options.text }}
     <RouterLink
-      class="underline underline-offset-2 text-primary-focus hover:text-primary"
+      class="link link-primary underline-offset-2"
       :to="options.link"
     >
       {{ options.linkText }}

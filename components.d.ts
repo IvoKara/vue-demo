@@ -7,8 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BottomNavigation: typeof import('./src/components/BottomNavigation.vue')['default']
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
     DarkToggle: typeof import('./src/components/DarkToggle.vue')['default']
+    Footer: typeof import('./src/components/Footer.vue')['default']
     InputField: typeof import('./src/components/InputField.vue')['default']
     LoginFrom: typeof import('./src/components/LoginFrom.vue')['default']
     LoginIcon: typeof import('./src/components/LoginIcon.vue')['default']
@@ -19,6 +21,7 @@ declare module '@vue/runtime-core' {
     PostList: typeof import('./src/components/PostList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ScrollButton: typeof import('./src/components/ScrollButton.vue')['default']
     SmallTextUnderForm: typeof import('./src/components/smallTextUnderForm.vue')['default']
     SocialIcon: typeof import('./src/components/SocialIcon.vue')['default']
     UserIcon: typeof import('./src/components/UserIcon.vue')['default']

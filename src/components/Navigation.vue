@@ -21,19 +21,19 @@ const md = breakpoints.smaller('md')
 </script>
 
 <template>
-  <div v-if="!md" fixed z-1>
-    <nav text-center font-montserrat text-lg w-screen class="bg-base-100" flex items-center justify-center>
-      <ul flex items-center>
+  <div v-if="!md" fixed z-1 style="width: calc(100% - 10px)">
+    <nav flex justify-center items-center font-montserrat text-lg class="bg-base-100">
+      <ul flex justify-center items-end>
         <li v-for="(item, i) in items" :key="i" m-4>
           <RouterLink :to="item.link" active-class="text-amber-950 dark:text-[#c75404ed] font-600">
             {{ item.name }}
           </RouterLink>
         </li>
       </ul>
-      <LoginIcon />
+      <LoginIcon mt-2 ml-4 />
     </nav>
     <DarkToggle />
-    <div class="bg-[#926511] dark:bg-amber-700" font- w-130 h="0.5" mx-auto />
+    <div class="bg-[#926511] dark:bg-amber-700" w-140 h="0.5" mx-auto />
     <!-- {{ x }}
     {{ y }} -->
   </div>

@@ -17,7 +17,7 @@ const data = ref('')
       class="input input-bordered w-full"
       :type="section.type"
       :placeholder="section.placeholder"
-      @input="$emit('update:fieldValue', $event.target.value)"
+      @input="$emit('update:fieldValue', $event.target?.value)"
     >
   </div>
 </template>
