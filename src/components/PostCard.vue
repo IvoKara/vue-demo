@@ -16,7 +16,7 @@ const md = breakpoints.between('sm', 'md')
   <div
     class="
       card card-normal
-      max-w-96 max-h-140
+      w-96 h-140
       bg-primary text-primary-content
       shadow-lg dark:shadow-stone-700
       transition-dark-light"

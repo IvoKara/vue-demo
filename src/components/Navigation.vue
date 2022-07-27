@@ -18,11 +18,19 @@ const items: Ref<MenuItem[]> = ref([
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const md = breakpoints.smaller('md')
+
+const watchScroll: Ref<HTMLElement | null> | undefined = inject('window')
+
+const { y } = useScroll(watchScroll)
 </script>
 
 <template>
   <div v-if="!md" fixed z-1 style="width: calc(100% - 10px)">
-    <nav flex justify-center items-center font-montserrat text-lg class="bg-base-100">
+    <nav
+      flex justify-center items-center font-montserrat
+      class="bg-base-100 text-lg transition-all-1000"
+      :class=" { 'text-sm': y > 0 }"
+    >
       <ul flex justify-center items-end>
         <li v-for="(item, i) in items" :key="i" m-4>
           <RouterLink :to="item.link" active-class="text-amber-950 dark:text-[#c75404ed] font-600">
@@ -30,10 +38,13 @@ const md = breakpoints.smaller('md')
           </RouterLink>
         </li>
       </ul>
-      <LoginIcon mt-2 ml-4 />
+      <!-- <LoginIcon mt-2 ml-4 class="no-animation" /> -->
     </nav>
     <DarkToggle />
-    <div class="bg-[#926511] dark:bg-amber-700" w-140 h="0.5" mx-auto />
+    <div
+      class="bg-[#926511] dark:bg-amber-700" w-140 transition-all-1000
+      h="0.5" mx-auto :class="{ 'w-full': y > 0 }"
+    />
     <!-- {{ x }}
     {{ y }} -->
   </div>
