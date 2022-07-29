@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { breakpointsTailwind } from '@vueuse/core'
 import type { Ref } from 'vue'
-
-interface MenuItem {
-  name: string
-  link: string
-}
+import type { MenuItem } from '@/types'
 
 const items: Ref<MenuItem[]> = ref([
   { name: 'Home', link: '/' },
@@ -28,24 +24,40 @@ const { y } = useScroll(watchScroll)
   <div v-if="!md" fixed z-1 style="width: calc(100% - 10px)">
     <nav
       flex justify-center items-center font-montserrat
-      class="bg-base-100 text-lg transition-all-1000"
+      class="bg-base-100 text-lg"
       :class=" { 'text-sm': y > 0 }"
     >
-      <ul flex justify-center items-end>
+      <ul flex justify-center transition-font-1000>
         <li v-for="(item, i) in items" :key="i" m-4>
           <RouterLink :to="item.link" active-class="text-amber-950 dark:text-[#c75404ed] font-600">
             {{ item.name }}
           </RouterLink>
         </li>
       </ul>
-      <!-- <LoginIcon mt-2 ml-4 class="no-animation" /> -->
+      <LoginIcon mt="2.3" ml-4 self-start class="no-animation" />
     </nav>
-    <DarkToggle />
+    <DarkToggle absolute top-3 right-3 />
     <div
       class="bg-[#926511] dark:bg-amber-700" w-140 transition-all-1000
       h="0.5" mx-auto :class="{ 'w-full': y > 0 }"
     />
     <!-- {{ x }}
     {{ y }} -->
+  </div>
+  <div
+    v-else
+    m-4 b b-black flex justify-between items-center
+    rounded-2 py-1 px-3
+  >
+    <p font-bold font-oswald>
+      Chris K. Parvanov
+    </p>
+    <label
+      for="my-drawer-4"
+      class="hidden md:block drawer-button
+        btn btn-primary btn-square btn-md"
+    >
+      <span i-heroicons-solid:menu />
+    </label>
   </div>
 </template>

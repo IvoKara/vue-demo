@@ -15,6 +15,11 @@ export interface User {
   username?: string
 }
 
+export interface MenuItem {
+  name: string
+  link: string
+}
+
 export interface InputOptions {
   label: string
   type: string

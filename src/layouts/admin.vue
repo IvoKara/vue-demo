@@ -25,8 +25,5 @@
   <main>
     <DarkToggle />
     <RouterView />
-    <RouterLink to="/" class="btn btn-primary">
-      Home
-    </RouterLink>
   </main>
 </template>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { breakpointsTailwind } from '@vueuse/core'
+import Drawer from '../components/Drawer.vue'
 import { useUserStore } from '@/stores/user'
 const authStore = useUserStore()
 

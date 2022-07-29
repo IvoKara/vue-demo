@@ -16,7 +16,7 @@ function backToTop() {
 <template>
   <div v-if="watchScroll !== null">
     <button
-      class="btn btn-secondary no-animation"
+      class="btn btn-primary no-animation"
       fixed bottom="-20" right="2rem"
       transition-transform-1000 transition="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
       :style="{

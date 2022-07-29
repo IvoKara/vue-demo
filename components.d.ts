@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     BottomNavigation: typeof import('./src/components/BottomNavigation.vue')['default']
     ContactForm: typeof import('./src/components/ContactForm.vue')['default']
     DarkToggle: typeof import('./src/components/DarkToggle.vue')['default']
+    Drawer: typeof import('./src/components/Drawer.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     InputField: typeof import('./src/components/InputField.vue')['default']
     LoginFrom: typeof import('./src/components/LoginFrom.vue')['default']
