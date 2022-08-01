@@ -1,35 +1,49 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import { vIntersectionObserver } from '@vueuse/components'
+import { breakpointsTailwind } from '@vueuse/core'
 import type { Post } from '@/types'
 import { usePostInfiniteQuery, usePostsQuery } from '@/composables/postQuery'
-
-// const postId = ref(null)
-// const { data, error, isFetching, isLoading } = usePostsQuery(postId, {
-//   enabled: computed(() => !!postId),
-// })
 
 const {
   data,
   error,
   fetchNextPage,
   hasNextPage,
-  isFetching,
   isFetchingNextPage,
   isLoading,
-  isError,
 } = usePostInfiniteQuery()
 
-const target = ref(null)
-const isVisible = ref(false)
 function onIntersectionObserver([{ isIntersecting }]) {
   if (hasNextPage?.value && !isFetchingNextPage.value && isIntersecting)
     fetchNextPage.value()
 }
+
+const breakpoints = useBreakpoints({
+  '3xl': '2074px',
+  '2xl': '1960px',
+  'xl': '1670px',
+  'lg': '1340px',
+})
+const md = breakpoints.smaller('lg')
+const lg = breakpoints.between('lg', 'xl')
+const xl = breakpoints.between('xl', '2xl')
+const xxl = breakpoints.between('2xl', '3xl')
+const xxxl = breakpoints['3xl']
 </script>
 
 <template>
-  <div flex flex-wrap gap-4 z-0 flex-1>
+  <div
+    grid auto-rows-fr auto-cols-fr
+    :class="{
+      'grid-cols-4 gap-15': xxxl,
+      'grid-cols-4 gap-7': xxl,
+      'grid-cols-3 gap-15': xl,
+      'grid-cols-2 gap-15': lg,
+      'grid-cols-1 gap-15 max-w-150 p10 mx-auto': md,
+    }"
+    z-0 mx-60
+  >
     <template v-if="isLoading">
       <div v-for="n in 10" :key="n" mx-auto>
         <PostCard />
@@ -40,7 +54,7 @@ function onIntersectionObserver([{ isIntersecting }]) {
     </div>
     <template v-else>
       <template v-for="page in data?.pages" :key="page.id">
-        <div v-for="post in page.data" :key="post.id" mx-auto>
+        <div v-for="post in page.data" :key="post.id">
           <PostCard :content="post" />
         </div>
       </template>

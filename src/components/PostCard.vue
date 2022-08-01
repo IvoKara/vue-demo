@@ -16,7 +16,7 @@ const md = breakpoints.between('sm', 'md')
   <div
     class="
       card card-normal
-      w-96 h-140
+      h-full
       bg-primary text-primary-content
       shadow-lg dark:shadow-stone-700
       transition-dark-light"
@@ -32,14 +32,14 @@ const md = breakpoints.between('sm', 'md')
     </figure>
     <div class="card-body">
       <h2>
-        <span v-if="post" class="card-title text-left text-3xl">
+        <span v-if="post" class="card-title text-left  md:!text-xl sm:!text-lg !text-base">
           {{ `${post.id} ${post?.title}` }}
         </span>
         <span v-else class="card-title text-left">
           Loading...
         </span>
       </h2>
-      <p v-if="post">
+      <p v-if="post" sm:text-base text-sm text-left>
         {{ post?.body?.slice(0, 100).concat('...') }}
       </p>
       <p v-else>
