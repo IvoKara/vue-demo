@@ -1,5 +1,6 @@
 <script setup lang="ts">
-// import { usePostsQuery } from '@/composables/postQuery'
+import type { Ref } from 'vue'
+import { usePostsQuery } from '@/composables/postQuery'
 
 const props = defineProps<{
   id: number | string
@@ -7,17 +8,16 @@ const props = defineProps<{
 
 const postId = ref(props.id)
 
-// const { data: post } = usePostsQuery(postId, {
-//   enabled: computed(() => !!postId),
-// })
+const { data: post, error, isLoading } = usePostsQuery(postId, {
+  enabled: computed(() => !!postId),
+})
 
-// const userId = computed(() => post.value?.userId)
-// const enabled = computed(() => !!post.value?.userId)
+const userId = computed(() => post.value?.userId)
+const enabled = computed(() => !!post.value?.userId)
 </script>
 
 <template>
-  <div />
-  <!-- <article v-if="post" max-w-200 text-base-content mx-auto mt-10>
+  <article v-if="post" max-w-200 text-base-content mx-auto mt-10>
     <h1 text-2xl font-bold mb-4>
       {{ post.title }}
     </h1>
@@ -28,6 +28,21 @@ const postId = ref(props.id)
     <div mb-4>
       {{ post.body }}
     </div>
-  </article> -->
+  </article>
+  <div v-else-if="error">
+    {{ error }}
+  </div>
+  <div v-else-if="isLoading">
+    <h1 text-2xl font-bold mb-4>
+      Loading...
+    </h1>
+    <UserIcon
+      :user-id="userId" :enabled="enabled"
+      mb-3
+    />
+    <div mb-4>
+      Loading ...
+    </div>
+  </div>
 </template>
 
