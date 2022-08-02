@@ -110,7 +110,8 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
     </label>
 
     <button
-      type="submit" class="mt-5 btn btn-primary !h-9 btn-sm sm:btn-md"
+      type="submit"
+      class="mt-5 btn btn-primary !h-9 btn-sm sm:btn-md"
       :class="{ 'btn-block': xs }"
     >
       Send
