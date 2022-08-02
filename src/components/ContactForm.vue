@@ -65,7 +65,7 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
       <input
         id="name" v-model="nameRef" type="text" name="name"
         placeholder="Your Name..."
-        class="w-full input input-bordered input-sm !h-10.5 sm:input-md sm:!h-12"
+        class="w-full input input-bordered input-sm !h-10 sm:input-md sm:!h-12"
         :class="{
           'input-success': nameEmpty !== null && !nameEmpty,
           'input-error': nameEmpty !== null && nameEmpty,
@@ -74,7 +74,7 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
       >
     </label>
     <label for="name">
-      <p mt-3 font-oswald>Email:</p>
+      <p mt-2 font-oswald>Email:</p>
       <p v-if="emailValid === false" mb-1 text-xs class="text-error">
         * {{
           (email !== email.trim()) ? 'Remove whitespaces'
@@ -93,7 +93,7 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
       >
     </label>
     <label>
-      <p mt-3 font-oswald>Message:</p>
+      <p mt-2 font-oswald>Message:</p>
       <p v-if="messageEmpty === true" mb-1 text-xs class="text-error">
         * Required
       </p>
@@ -111,7 +111,7 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
 
     <button
       type="submit"
-      class="mt-5 btn btn-primary !h-9 btn-sm sm:btn-md"
+      class="mt-2 btn btn-primary !h-9 btn-sm sm:btn-md"
       :class="{ 'btn-block': xs }"
     >
       Send

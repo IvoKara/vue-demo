@@ -45,11 +45,11 @@ const { y } = useScroll(watchScroll)
     {{ y }} -->
   </div>
   <div
-    v-else
+    v-else fixed
     z-1 left-0 right-0 bg-opacity-50
-    m-4 flex justify-between items-center
+    flex justify-between items-center
     rounded-2 py-1 px-3
-    class="bg-base-100"
+    class="bg-primary"
   >
     <p font-bold font-oswald>
       Chris K. Parvanov

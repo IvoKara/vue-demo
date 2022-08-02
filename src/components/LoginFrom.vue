@@ -31,7 +31,7 @@ if (props.hasConfirmPass === true) {
   <div
     v-if="isLoading"
     transition ease-in-out transition-duration="0.4s"
-    z-10 w-100 h-100
+    z-10
     fixed
     opacity-50
     class="bg-base-100"
@@ -53,14 +53,16 @@ if (props.hasConfirmPass === true) {
         v-model:fieldValue="opt.targetRef.value" :section="opt"
       />
       <button
-        type="submit" class="btn btn-primary w-full my-2 transition-dark-light"
+        type="submit" class="btn btn-primary w-full my-2 !h-9 btn-sm sm:btn-md"
         :class="{ loading: isLoading === true }"
       >
         {{ name }}
       </button>
     </form>
-    <SmallTextUnderForm
-      :options="smallText"
-    />
+    <div class="my-2">
+      <SmallTextUnderForm
+        :options="smallText"
+      />
+    </div>
   </div>
 </template>

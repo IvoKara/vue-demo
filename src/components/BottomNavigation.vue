@@ -1,13 +1,28 @@
 <template>
   <div text-center>
-    <div inline-flex text-xs gap-5>
-      <RouterLink to="/" class="link-hover underline-offset-1">
+    <div
+      inline-flex text-xs gap-10
+      text-neutral-500 dark:text-stone-400
+    >
+      <RouterLink
+        to="/"
+        class="hover:text-neutral-700
+               dark:hover:text-stone-3"
+      >
         Home
       </RouterLink>
-      <RouterLink to="/portfolio" class="link-hover underline-offset-1">
+      <RouterLink
+        to="/portfolio"
+        class="hover:text-neutral-700
+               dark:hover:text-stone-3"
+      >
         Portfolio
       </RouterLink>
-      <RouterLink to="/contacts" class="link-hover underline-offset-1">
+      <RouterLink
+        to="/contacts"
+        class="hover:text-neutral-700
+               dark:hover:text-stone-3"
+      >
         Contacts
       </RouterLink>
     </div>

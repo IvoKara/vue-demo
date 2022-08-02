@@ -46,7 +46,7 @@ useHead({
     :is-loading="isLoading"
     @on-submit="login"
   />
-  <div class="text-error text-sm">
+  <div class="text-error text-xs sm:text-sm">
     {{ error?.response.data }}
   </div>
 </template>
