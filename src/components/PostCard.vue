@@ -21,9 +21,9 @@ const md = breakpoints.between('sm', 'md')
       shadow-lg dark:shadow-stone-700
       transition-dark-light"
   >
-    <figure max-w="400px" max-h="250px">
+    <figure max-w-150 max-h="250px">
       <img
-        src="https://picsum.photos/400/250"
+        src="https://picsum.photos/520/250"
         alt="Picture"
         :class="imageLoaded === true ? 'opacity-100' : 'opacity-0'"
         transition-all duration="1000" ease-in-out

@@ -34,7 +34,7 @@ const { y } = useScroll(watchScroll)
           </RouterLink>
         </li>
       </ul>
-      <LoginIcon mt="2.3" ml-4 self-start class="no-animation" />
+      <LoginIcon mt="2.3" ml-4 self-start class="no-animation" transition-all-1000 />
     </nav>
     <DarkToggle absolute top-3 right-3 />
     <div
@@ -46,8 +46,10 @@ const { y } = useScroll(watchScroll)
   </div>
   <div
     v-else
-    m-4 b b-black flex justify-between items-center
+    z-1 left-0 right-0 bg-opacity-50
+    m-4 flex justify-between items-center
     rounded-2 py-1 px-3
+    class="bg-base-100"
   >
     <p font-bold font-oswald>
       Chris K. Parvanov
@@ -55,7 +57,7 @@ const { y } = useScroll(watchScroll)
     <label
       for="my-drawer-4"
       class="hidden md:block drawer-button
-        btn btn-primary btn-square btn-md"
+        btn btn-primary btn-square"
     >
       <span i-heroicons-solid:menu />
     </label>

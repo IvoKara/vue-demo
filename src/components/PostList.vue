@@ -22,7 +22,7 @@ function onIntersectionObserver([{ isIntersecting }]) {
 const breakpoints = useBreakpoints({
   '3xl': '2074px',
   '2xl': '1960px',
-  'xl': '1670px',
+  'xl': '1600px',
   'lg': '1340px',
 })
 const md = breakpoints.smaller('lg')
