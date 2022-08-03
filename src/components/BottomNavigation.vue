@@ -1,7 +1,7 @@
 <template>
   <div text-center>
     <div
-      inline-flex text-xs gap-10
+      flex text-xs justify-evenly
       text-neutral-500 dark:text-stone-400
     >
       <RouterLink

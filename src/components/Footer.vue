@@ -10,7 +10,10 @@ const xs = breakpoints.smaller('xs')
 </script>
 
 <template>
-  <footer transition-dark-light text-center class="bg-neutral-800 dark:bg-amber-700/87 text-white">
+  <footer
+    transition-dark-light text-center
+    class="bg-neutral-800 dark:bg-amber-800 text-white"
+  >
     <div font-oswald text-base sm:text-xl md:text-2xl lg:text-3xl py-4>
       <p v-if="!xs">
         Sofia, Bulgaria | chrisparvanov17@gmail.com | Tel: +359-87-698-8867

@@ -54,7 +54,7 @@ const xs = useBreakpoints(breakpointsTailwind).smaller('sm')
     {{ state }}
   </div> -->
   <form
-    mx-auto w-80 sm:w-100 text-left
+    mx-auto max-w-80 sm:w-100 text-left
     @submit.prevent="(e) => sendMail(e as SubmitEvent)"
   >
     <label for="name" w-full>

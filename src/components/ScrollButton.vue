@@ -18,7 +18,7 @@ function backToTop() {
     <button
       class="btn btn-primary no-animation"
       fixed bottom="-20" right="2rem"
-      transition-transform-1000 transition="cubic-bezier(0.76, 0.01, 0.04, 0.94)"
+      transition-transform-1000
       :style="{
         transform: scrollByY > 0 ? 'translate3d(0px, -200%, 10px)' : 'unset',
       }"

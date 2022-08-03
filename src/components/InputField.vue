@@ -18,7 +18,7 @@ const data = ref('')
         w-full !h-10 sm:input-md sm:!h-12"
       :type="section.type"
       :placeholder="section.placeholder"
-      @input="$emit('update:fieldValue', $event.target?.value)"
+      @input="$emit('update:fieldValue', ($event.target as HTMLInputElement).value)"
     >
   </div>
 </template>

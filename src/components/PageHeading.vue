@@ -1,5 +1,10 @@
 <template>
-  <h1 text-center mx-auto text="30" md:text="38" font-greatvibes md:h-57 w-full>
+  <h1
+    pt="0.12em" h="1em" mb="0.25em"
+    text-center text-8xl sm:text="30" md:text="38"
+    mx-auto w-full
+    class="font-greatvibes text-base-content transition-dark-light"
+  >
     <slot />
   </h1>
 </template>

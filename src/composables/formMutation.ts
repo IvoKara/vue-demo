@@ -6,5 +6,8 @@ export function useFormMutation(url, axiosInst) {
     onSuccess: ({ data }, variables, context) => { // eslint-disable-line @typescript-eslint/no-unused-vars
       axiosInst.defaults.headers.authorization = `Bearer ${data.token}`
     },
+    onError: (error, variables, context) => {
+      console.log(context)
+    },
   })
 }

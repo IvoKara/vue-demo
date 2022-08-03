@@ -1,7 +1,10 @@
-import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
+import { presetAttributify, presetIcons, presetTypography, presetUno, presetWebFonts } from 'unocss'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
+import { defineConfig } from 'unocss/vite'
+
 export default defineConfig(
   {
+    mode: 'per-module',
     presets: [
       presetUno(),
       presetIcons({ scale: 2.4 }),

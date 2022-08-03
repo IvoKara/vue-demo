@@ -31,9 +31,8 @@ if (props.hasConfirmPass === true) {
   <div
     v-if="isLoading"
     transition ease-in-out transition-duration="0.4s"
-    z-10
-    fixed
-    opacity-50
+    z-10 fixed opacity-50
+    top-0 bottom-0 left-0 right-0
     class="bg-base-100"
   />
   <div transition-dark-light>

@@ -12,22 +12,27 @@ watch(() => authStore.isLoggedIn, () => {
   router.push('/admin')
 })
 
-const isSmall = useBreakpoints({
-  small: '460px',
-}).smaller('small')
+const breakpoints = useBreakpoints({
+  sm: '460px',
+  xs: '350px',
+})
+const mobile = breakpoints.smaller('sm')
+const xsMobile = breakpoints.smaller('xs')
 </script>
 
 <template>
   <main
     text-center text-gray-700 dark:text-gray-200
     flex flex-col flex-wrap justify-center
-    mx-auto h-screen max-w-100
-    :class="{ 'w-[80%]': isSmall }"
+    mx-auto h="95vh" max-w-100
+    :class="{ 'w-[80%]': mobile }"
   >
     <RouterView />
-    <div mt-20>
+    <div
+      mx-auto mt-15 min-w="80%"
+      :class="{ 'w-[100%]': xsMobile }"
+    >
       <hr
-        w="75%" mx-auto
         text-neutral-200 dark:text-neutral-700
       >
       <BottomNavigation mt-2 />
