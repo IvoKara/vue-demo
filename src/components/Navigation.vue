@@ -21,7 +21,7 @@ const { y } = useScroll(watchScroll)
 
 <template>
   <header z-1 pb-15>
-    <div v-if="!md" fixed style="width: calc(100% - 10px)">
+    <div v-if="!md" fixed class="full-navbar-width">
       <nav
         flex justify-center items-center font-montserrat
         class="bg-base-100 text-lg"
@@ -38,8 +38,8 @@ const { y } = useScroll(watchScroll)
       </nav>
       <DarkToggle absolute top-3 right-3 />
       <div
-        class="bg-[#926511] dark:bg-amber-700" w-140 transition-all-1000
-        h="0.5" mx-auto :class="{ 'w-full': y > 0 }"
+        class="bg-[#926511] dark:bg-amber-700" transition-all-1000
+        h="0.5" mx-auto :class=" y > 0 ? 'w-full' : 'w-140'"
       />
     </div>
     <nav
@@ -63,3 +63,10 @@ const { y } = useScroll(watchScroll)
     </nav>
   </header>
 </template>
+
+<style scoped>
+.full-navbar-width {
+  width: calc(100% - 10px);
+  width: -moz-available;
+}
+</style>
