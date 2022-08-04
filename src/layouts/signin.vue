@@ -24,7 +24,7 @@ const xsMobile = breakpoints.smaller('xs')
   <main
     text-center text-gray-700 dark:text-gray-200
     flex flex-col flex-wrap justify-center
-    mx-auto h="95vh" max-w-100
+    mx-auto h="90vh" max-w-100
     :class="{ 'w-[80%]': mobile }"
   >
     <RouterView />

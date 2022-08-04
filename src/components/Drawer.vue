@@ -38,25 +38,19 @@ const xsAndSmaller = breakpoints.smaller('2xs')
     <div class="drawer-content overflow-y-hidden">
       <slot />
     </div>
-    <div class="drawer-side">
+    <div class="drawer-side overflow-x-hidden">
       <label for="mobile-drawer" class="drawer-overlay" />
+
       <div
         class="flex flex-col gap-1.5 p-4 overflow-y-auto bg-base-100 text-base-content"
         :class="{ 'w-80': md, 'w-65': xs, 'w-55': xsAndSmaller }"
       >
-        <!-- <li>
-            <label
-              for="mobile-drawer"
-              class=""
-            >
-              <div i-maki:cross class="drawer-button btn btn-primary btn-square btn-sm" />
-            </label>
-          </li> -->
         <div class="ml-3 flex justify-center items-center h-10 w-10">
           <label for="mobile-drawer">
             <div i-maki:cross w-5 h-5 opacity-50 />
           </label>
         </div>
+
         <div v-for="(item, i) in items" :key="i">
           <RouterLink
             block rounded-2 px-5 py-3
