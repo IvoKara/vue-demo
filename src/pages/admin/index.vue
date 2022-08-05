@@ -2,13 +2,16 @@
 import { useUserStore } from '@/stores/user'
 
 useHead({
-  title: 'Admin Panel',
+  title: 'Dashboard',
 })
 
 const userStore = useUserStore()
 </script>
 
 <template>
+  <AdminPanelHeading>
+    Dashboard
+  </AdminPanelHeading>
   <div>
     Admin Dashboard
   </div>
@@ -18,6 +21,9 @@ const userStore = useUserStore()
   <RouterLink to="/" class="btn" @click="userStore.logoff()">
     Logout
   </RouterLink>
+  <div class="btn btn-primary">
+    explore transform
+  </div>
 </template>
 
 <route lang="yaml">

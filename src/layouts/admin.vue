@@ -1,12 +1,16 @@
 <script setup lang="ts">
-// import { onBeforeRouteUpdate } from 'vue-router'
-// import { useUserStore } from '@/stores/user'
+import { onBeforeRouteUpdate } from 'vue-router'
+import type { Ref } from 'vue'
+import { useUserStore } from '@/stores/user'
 
+import type { MenuItem } from '@/types.js'
+
+// const route = useRoute()
 // const router = useRouter()
 // const userStore = useUserStore()
 
 // watch(() => route.params, () => {
-//   console.log(route.fullPath)
+//   // console.log(route.fullPath)
 //   if (!userStore.isLoggedIn)
 //     router.push('/admin/login')
 // })
@@ -19,11 +23,41 @@
 //     }
 //   }
 // })
+
+const sidebarRoutes: Ref<MenuItem[]> = ref([
+  { name: 'Dashboard', link: '/admin' },
+  { name: 'Preview', link: '/admin/preview' },
+  { name: 'Edit Posts', link: '/admin/posts/edit' },
+  { name: 'Settings', link: '/admin/settings' },
+])
 </script>
 
 <template>
-  <main>
-    <DarkToggle />
-    <RouterView />
-  </main>
+  <div class="grid grid-cols-[1fr_5fr]">
+    <!-- border-r-3 border-r-neutral-700 -->
+    <nav p-7 h-screen bg-light-500 dark:bg-neutral-800>
+      <h3 text-3xl mb-9 mt-3 ml-6>
+        Welcome, Someone!
+      </h3>
+      <ul flex flex-col gap-2 text-lg>
+        <li v-for="(route, i) in sidebarRoutes" :key="i">
+          <RouterLink
+            :to="route.link"
+            block py="3.5" px-6 rounded-2
+            active-class="bg-black dark:bg-gray bg-opacity-10 dark:bg-opacity-10"
+          >
+            {{ route.name }}
+          </RouterLink>
+        </li>
+      </ul>
+    </nav>
+    <main py-12 px-15>
+      <DarkToggle fixed top-3 right-3 />
+      <RouterView />
+    </main>
+  </div>
+  wefwefewfwqes
 </template>
+
+<style scoped>
+</style>
