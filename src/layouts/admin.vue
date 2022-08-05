@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { onBeforeRouteUpdate } from 'vue-router'
+// import { onBeforeRouteUpdate } from 'vue-router'
 import type { Ref } from 'vue'
 import { useUserStore } from '@/stores/user'
-
 import type { MenuItem } from '@/types.js'
 
 // const route = useRoute()
 // const router = useRouter()
-// const userStore = useUserStore()
+const userStore = useUserStore()
 
 // watch(() => route.params, () => {
 //   // console.log(route.fullPath)
@@ -37,7 +36,11 @@ const sidebarRoutes: Ref<MenuItem[]> = ref([
     <!-- border-r-3 border-r-neutral-700 -->
     <nav p-7 h-screen bg-light-500 dark:bg-neutral-800>
       <h3 text-3xl mb-9 mt-3 ml-6>
-        Welcome, Someone!
+        Welcome,
+        <span v-if="userStore.token === null">Someone!</span>
+        <span>
+          {{ JSON.parse(userStore.payload)?.username }}!
+        </span>
       </h3>
       <ul flex flex-col gap-2 text-lg>
         <li v-for="(route, i) in sidebarRoutes" :key="i">

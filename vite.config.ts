@@ -35,10 +35,23 @@ export default defineConfig({
     }),
     Unocss(),
   ],
-  // ssgOptions: {
-  //   script: 'async',
-  //   formatting: 'minify',
-  // },
+  // @ts-expect-error: Unreachable code error
+  ssgOptions: {
+    script: 'async',
+    formatting: 'minify',
+    format: 'cjs',
+    // @ts-expect-error: Unreachable code error
+    includedRoutes(paths, routes) {
+      // exclude all the route paths that contains 'foo'
+      // @ts-expect-error: Unreachable code error
+      return paths.filter((i) => {
+        if (i.includes('login'))
+          return true
+        else
+          return !i.includes('admin')
+      })
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

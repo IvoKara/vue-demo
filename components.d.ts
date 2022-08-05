@@ -18,7 +18,6 @@ declare module '@vue/runtime-core' {
     LoginIcon: typeof import('./src/components/LoginIcon.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']
     PageHeading: typeof import('./src/components/PageHeading.vue')['default']
-    PanelHeading: typeof import('./src/components/PanelHeading.vue')['default']
     Post: typeof import('./src/components/Post.vue')['default']
     PostCard: typeof import('./src/components/PostCard.vue')['default']
     PostList: typeof import('./src/components/PostList.vue')['default']

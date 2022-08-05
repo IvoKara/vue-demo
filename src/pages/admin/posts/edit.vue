@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import Editor from 'primevue/editor'
+import type { Ref } from 'vue'
+
+// import Quill from 'quill'
 
 useHead({
   title: 'Edit Post',
@@ -7,6 +9,15 @@ useHead({
 
 const content = ref('<div>Hello there</div>')
 const postId = ref(1)
+const myEditor = ref<HTMLElement | null>(null)
+onMounted(async () => {
+  // const Quill = await import('quill')
+  // const quill = new Quill('#myEditor', {
+  //   theme: 'snow',
+  // })
+  // quill.pasteHTML()
+  // console.log(quill)
+})
 </script>
 
 <template>
@@ -23,13 +34,16 @@ const postId = ref(1)
       border-gray-200
     >
   </label>
-  <Editor v-model="content" editor-style="height: 320px" />
+  <div id="myEditor" ref="myEditor">
+    <p>Hello World!</p>
+    <p>Some initial <strong>bold</strong> text</p>
+    <p><br></p>
+  </div>
 
-  <!-- <div id="editor">
-  <p>Hello World!</p>
-  <p>Some initial <strong>bold</strong> text</p>
-  <p><br></p>
-</div> -->
+  <ClientOnly>
+    <!-- <Editor v-model="content" editor-style="height: 320px" /> -->
+    <quill-editor v-model:value="content" class="!h-100" />
+  </ClientOnly>
 </template>
 
 <route lang="yaml">
