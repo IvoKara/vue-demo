@@ -2,9 +2,11 @@ import { useInfiniteQuery, useQuery } from 'vue-query'
 import { axiosInstance } from '@/api/axiosInstance'
 
 export function usePostsQuery(slug, { enabled }) {
+  console.error(slug)
+  console.error(enabled.value)
   return useQuery(
     ['posts', slug],
-    () => axiosInstance.value.get(slug.value == null ? '/posts' : `/posts/${slug.value}`),
+    () => axiosInstance.value.get(`/posts/${slug}`),
     {
       enabled,
       select: post => post.data,

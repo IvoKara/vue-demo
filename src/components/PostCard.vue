@@ -47,7 +47,9 @@ const md = breakpoints.between('sm', 'md')
       </p>
       <div class="card-actions justify-end">
         <RouterLink
-          :to="`/blog/${post?.id}`" class="btn btn-primary-content"
+          :to="`/blog/${post?.id}`"
+          class="btn btn-primary-content"
+          :disabled="!post"
         >
           Read more
         </RouterLink>

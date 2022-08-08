@@ -8,8 +8,8 @@ const props = defineProps<{
 
 const postId = ref(props.id)
 
-const { data: post, error, isLoading } = usePostsQuery(postId, {
-  enabled: computed(() => !!postId),
+const { data: post, error, isLoading } = usePostsQuery(postId.value, {
+  enabled: computed(() => !!postId && postId.value !== ':slug'),
 })
 
 const userId = computed(() => post.value?.userId)

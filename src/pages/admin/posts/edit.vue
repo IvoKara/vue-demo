@@ -41,9 +41,11 @@ const options = {
       mb-10
     >
   </label>
-  <div v-cloak class="h-100">
-    <QuillEditor v-model:value="content" :options="options" />
-  </div>
+  <ClientOnly>
+    <div v-cloak class="h-100">
+      <QuillEditor v-model:value="content" :options="options" />
+    </div>
+  </ClientOnly>
 </template>
 
 <style>

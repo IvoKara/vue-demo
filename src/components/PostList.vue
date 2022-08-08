@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
 import { vIntersectionObserver } from '@vueuse/components'
-import { breakpointsTailwind } from '@vueuse/core'
-import type { Post } from '@/types'
-import { usePostInfiniteQuery, usePostsQuery } from '@/composables/postQuery'
+import { usePostInfiniteQuery } from '@/composables/postQuery'
 
 const {
   data,
