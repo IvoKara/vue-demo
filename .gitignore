@@ -27,3 +27,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Vite SSG
+.vite-ssg/*
+.vite-ssg-test/*
