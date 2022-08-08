@@ -59,7 +59,6 @@ const sidebarRoutes: Ref<MenuItem[]> = ref([
       <RouterView />
     </main>
   </div>
-  wefwefewfwqes
 </template>
 
 <style scoped>

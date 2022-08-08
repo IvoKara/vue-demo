@@ -23,8 +23,6 @@
     "jwt-decode": "^3.1.2",
     "nprogress": "^0.2.0",
     "pinia": "^2.0.16",
-    "primeicons": "^5.0.0",
-    "primevue": "^3.15.0",
     "vue": "^3.2.37",
     "vue-query": "^1.25.2",
     "vue-router": "^4.0.16",

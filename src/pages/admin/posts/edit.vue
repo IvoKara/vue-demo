@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import type { Ref } from 'vue'
-
-// import Quill from 'quill'
-
 useHead({
   title: 'Edit Post',
 })
 
-const content = ref('<div>Hello there</div>')
 const postId = ref(1)
-const myEditor = ref<HTMLElement | null>(null)
-onMounted(async () => {
-  // const Quill = await import('quill')
-  // const quill = new Quill('#myEditor', {
-  //   theme: 'snow',
-  // })
-  // quill.pasteHTML()
-  // console.log(quill)
-})
+const content = ref('<div>Hello World!!</div>')
+
+const options = {
+  theme: 'snow',
+  placeholder: 'Enter your text here...',
+  modules: {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6, false] }],
+      [{ font: [] }],
+      ['bold', 'italic', 'underline', 'strike'],
+      ['code-block', 'blockquote'],
+      [{ color: [] }, { background: [] }],
+      [{ script: 'sub' }, { script: 'super' }],
+      [{ indent: '-1' }, { indent: '+1' }, { align: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+  },
+}
 </script>
 
 <template>
@@ -32,19 +38,19 @@ onMounted(async () => {
       border-2 p-3
       rounded-3
       border-gray-200
+      mb-10
     >
   </label>
-  <div id="myEditor" ref="myEditor">
-    <p>Hello World!</p>
-    <p>Some initial <strong>bold</strong> text</p>
-    <p><br></p>
+  <div v-cloak class="h-100">
+    <QuillEditor v-model:value="content" :options="options" />
   </div>
-
-  <ClientOnly>
-    <!-- <Editor v-model="content" editor-style="height: 320px" /> -->
-    <quill-editor v-model:value="content" class="!h-100" />
-  </ClientOnly>
 </template>
+
+<style>
+[v-cloak] {
+  display: none;
+}
+</style>
 
 <route lang="yaml">
 meta:

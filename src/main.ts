@@ -9,6 +9,7 @@ import 'uno.css'
 import '@/../node_modules/nprogress/nprogress.css'
 import '@/../node_modules/daisyui/dist/full.css'
 import '@/../node_modules/daisyui/dist/themes.css'
+import '@/../node_modules/quill/dist/quill.snow.css'
 import type { UserModule } from './types'
 // import '@/assets/base.css'
 
