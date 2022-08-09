@@ -6,7 +6,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "./node_modules/.bin/vite",
+    "dev": "./node_modules/.bin/vite & json-server db.json",
     "build": "./node_modules/.bin/run-p type-check build-only",
     "preview": "./node_modules/.bin/vite preview --port 4173",
     "build-only": "./node_modules/.bin/vite-ssg build",
