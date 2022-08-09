@@ -9,6 +9,7 @@ useHead({
     <PageHeading h="1.4em">
       Blog
     </PageHeading>
-    <PostList mt-20 />
+
+    <PostList mt-10 />
   </div>
 </template>

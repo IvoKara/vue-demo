@@ -49,7 +49,6 @@ const md = breakpoints.between('sm', 'md')
         <RouterLink
           :to="`/blog/${post?.id}`"
           class="btn btn-primary-content"
-          :disabled="!post"
         >
           Read more
         </RouterLink>
