@@ -32,13 +32,13 @@ const sidebarRoutes: Ref<MenuItem[]> = ref([
 </script>
 
 <template>
-  <div class="grid grid-cols-[1fr_5fr]">
+  <div class="grid grid-cols-[25em_1fr]">
     <!-- border-r-3 border-r-neutral-700 -->
     <nav p-7 h-screen bg-light-500 dark:bg-neutral-800>
       <h3 text-3xl mb-9 mt-3 ml-6>
         Welcome,
         <span v-if="userStore.token === null">Someone!</span>
-        <span>
+        <span v-else>
           {{ JSON.parse(userStore.payload)?.username }}!
         </span>
       </h3>

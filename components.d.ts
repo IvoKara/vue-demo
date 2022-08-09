@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     Drawer: typeof import('./src/components/Drawer.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
     InputField: typeof import('./src/components/InputField.vue')['default']
+    LoadingEditor: typeof import('./src/components/LoadingEditor.vue')['default']
     LoginFrom: typeof import('./src/components/LoginFrom.vue')['default']
     LoginIcon: typeof import('./src/components/LoginIcon.vue')['default']
     Navigation: typeof import('./src/components/Navigation.vue')['default']

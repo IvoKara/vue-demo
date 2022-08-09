@@ -39,4 +39,13 @@ export interface Credentials {
   confirmPass?: string
 }
 
+export interface QuillOptions {
+  debug?: string
+  placeholder?: string
+  theme: string
+  modules?: {
+    toolbar: any
+  }
+}
+
 export type UserModule = (ctx: ViteSSGContext) => void
