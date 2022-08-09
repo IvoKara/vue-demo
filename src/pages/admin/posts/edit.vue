@@ -37,7 +37,7 @@ watchEffect(() => {
   if (error.value) {
     options.placeholder = `
       Error while loading post content: 
-        ${error.value.response.statusText}`
+        ${(error.value as any).response.statusText}`
     content.value = ''
   }
   else if (isLoading.value) {
