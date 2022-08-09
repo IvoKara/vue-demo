@@ -30,4 +30,4 @@ coverage
 
 # Vite SSG
 .vite-ssg/*
-.vite-ssg-test/*
+.vite-ssg-temp/*
