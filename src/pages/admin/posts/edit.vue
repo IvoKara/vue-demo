@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import type { Ref } from 'vue'
 import { usePostsQuery } from '@/composables/postQuery'
-import type { Post, QuillOptions } from '@/types'
+import type { QuillOptions } from '@/types'
 import { usePostMutation } from '@/composables/postMutation'
 import { extractFromHTML } from '@/composables/extractContent'
 
@@ -10,12 +11,13 @@ useHead({
 
 const changeBorder = ref(false)
 
-const postId = ref(1)
-const content = ref('')
+const postId: Ref<number> = ref(1)
+const content: Ref<string> = ref('')
 const { data, error, isLoading, refetch } = usePostsQuery(postId, {
   enabled: computed(() => !!postId.value),
 })
 
+const placeholder: Ref<string> = ref('')
 const options: QuillOptions = reactive({
   theme: 'snow',
   modules: {
@@ -34,29 +36,36 @@ const options: QuillOptions = reactive({
   },
 })
 
+const quillEditor: Ref<HTMLDivElement | null> = ref(null)
+
+watchEffect(() => {
+  if (quillEditor.value) {
+    (quillEditor.value as any)
+      .editor
+      .firstChild.dataset
+      .placeholder = placeholder.value
+  }
+})
+
 watchEffect(() => {
   if (error.value) {
-    options.placeholder = `
-      Error while loading post content: 
-        ${(error.value as any).response.statusText}`
+    placeholder.value = `Error while loading post content: ${(error.value as any).response.statusText}`
     content.value = ''
   }
   else if (isLoading.value) {
-    options.placeholder = 'Loading post content...'
+    placeholder.value = 'Loading post content...'
     content.value = ''
-    // console.log('here')
   }
   else {
-    options.placeholder = 'Enter your text here...'
+    placeholder.value = 'Enter your text here...'
     content.value = `
       <h1>${data.value?.title}</h1>
       <p>${data.value?.body}</p>
     `
-    // console.log('not here')
   }
 })
 
-const url = ref('')
+const url: Ref<string> = ref('')
 watchEffect(() => {
   url.value = `/posts/${postId.value}`
 })
@@ -66,13 +75,11 @@ const { mutateAsync, mutate } = usePostMutation(url)
 async function saveEdittedPost() {
   // custom extract logic
   const edittedPost = extractFromHTML(content.value)
-  // console.log(url.value)
   await mutateAsync(edittedPost as any)
 }
 </script>
 
 <template>
-  {{ isLoading }}
   <AdminPanelHeading>
     Edit
   </AdminPanelHeading>
@@ -99,6 +106,7 @@ async function saveEdittedPost() {
       }"
     >
       <QuillEditor
+        ref="quillEditor"
         v-model:value="content"
         class="!h-100"
         :options="options"
