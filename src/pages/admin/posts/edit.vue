@@ -55,19 +55,22 @@ watchEffect(() => {
   }
 })
 
-const { mutateAsync, mutate } = usePostMutation(`/posts${postId.value}`)
+const url = ref('')
+watchEffect(() => {
+  url.value = `/posts/${postId.value}`
+})
+
+const { mutateAsync, mutate } = usePostMutation(url)
 
 async function saveEdittedPost() {
   // custom extract logic
   const endHeading = content.value.search('</h1>')
-  const post: Post = {
-    id: postId.value,
-    userId: 1, // hardcoded
+  const edittedPost = {
     title: content.value.slice(4, endHeading),
     body: content.value.slice(endHeading).replace(/<(?:.|\n)*?>/gm, ''),
   }
-  console.log(post)
-  // await mutateAsync(post as any)
+  console.log(url.value)
+  await mutateAsync(edittedPost as any)
 }
 </script>
 
