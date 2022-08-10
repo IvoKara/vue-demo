@@ -34,10 +34,10 @@ const sidebarRoutes: Ref<MenuItem[]> = ref([
 <template>
   <div class="grid grid-cols-[25em_1fr]">
     <!-- border-r-3 border-r-neutral-700 -->
-    <nav p-7 h-screen bg-light-500 dark:bg-neutral-800>
+    <nav p-7 h-screen bg-light-500 dark:bg="#333">
       <h3 text-3xl mb-9 mt-3 ml-6>
         Welcome,
-        <span v-if="userStore.token === null">Someone!</span>
+        <span v-if="userStore.token === null">Admin!</span>
         <span v-else>
           {{ JSON.parse(userStore.payload)?.username }}!
         </span>
@@ -47,7 +47,7 @@ const sidebarRoutes: Ref<MenuItem[]> = ref([
           <RouterLink
             :to="route.link"
             block py="3.5" px-6 rounded-2
-            active-class="bg-black dark:bg-gray bg-opacity-10 dark:bg-opacity-10"
+            active-class="bg-black dark:bg-gray-100 bg-opacity-10 dark:bg-opacity-10"
           >
             {{ route.name }}
           </RouterLink>
