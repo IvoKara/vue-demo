@@ -4,6 +4,7 @@ import { usePostsQuery } from '@/composables/postQuery'
 import type { QuillOptions } from '@/types'
 import { usePostMutation } from '@/composables/postMutation'
 import { extractFromHTML } from '@/composables/extractContent'
+import { isDark } from '@/composables/dark'
 
 useHead({
   title: 'Edit Post',
@@ -36,6 +37,7 @@ const options: QuillOptions = reactive({
   },
 })
 
+const editorContainer: Ref<HTMLDivElement | null> = ref(null)
 const quillEditor: Ref<HTMLDivElement | null> = ref(null)
 
 watchEffect(() => {
@@ -44,6 +46,21 @@ watchEffect(() => {
       .editor
       .firstChild.dataset
       .placeholder = placeholder.value
+
+    const editor = editorContainer.value
+    const fills = editor?.querySelectorAll('.ql-fill')
+    const strokes = editor?.querySelectorAll('.ql-stroke')
+    const pickers = editor?.querySelectorAll('.ql-picker')
+    if (isDark.value) {
+      fills?.forEach(elem => elem.classList.add('!fill-coolgray'))
+      strokes?.forEach(elem => elem.classList.add('!stroke-coolgray'))
+      pickers?.forEach(elem => elem.classList.add('!color-coolgray'))
+    }
+    else {
+      fills?.forEach(elem => elem.classList.remove('!fill-coolgray'))
+      strokes?.forEach(elem => elem.classList.remove('!stroke-coolgray'))
+      pickers?.forEach(elem => elem.classList.remove('!color-coolgray'))
+    }
   }
 })
 
@@ -80,6 +97,7 @@ async function saveEdittedPost() {
 </script>
 
 <template>
+  {{ isDark }}
   <AdminPanelHeading>
     Edit
   </AdminPanelHeading>
@@ -89,9 +107,8 @@ async function saveEdittedPost() {
       <input
         id="post-id" v-model="postId" type="number"
         name="post-id" min="1" max="100"
-        border-2 p-3
-        rounded-3
-        border-gray-200
+        class="input input-bordered"
+        max-w-xs p-3
       >
     </label>
     <div v-if="error" my-2 text-red text-sm>
@@ -99,8 +116,8 @@ async function saveEdittedPost() {
     </div>
   </div>
   <ClientOnly>
-    {{ options.placeholder }}
     <div
+      ref="editorContainer"
       :class="{
         'outline outline-2 outline-yellow-5 outline-offset-2': changeBorder,
       }"
