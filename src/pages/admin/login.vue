@@ -27,14 +27,6 @@ async function login(event) {
     userStore.payload = JSON.stringify(jwt_decode(userStore.token))
 }
 
-const username: Ref<string> = ref('')
-const password: Ref<string> = ref('')
-const inputOptions: InputOptions[] = [
-
-  { label: 'Username', type: 'text', placeholder: 'Username', targetRef: username },
-  { label: 'Password', type: 'password', placeholder: 'Password', targetRef: password },
-]
-
 useHead({
   title: 'Login',
 })

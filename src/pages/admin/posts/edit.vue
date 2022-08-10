@@ -2,6 +2,7 @@
 import { usePostsQuery } from '@/composables/postQuery'
 import type { Post, QuillOptions } from '@/types'
 import { usePostMutation } from '@/composables/postMutation'
+import { extractFromHTML } from '@/composables/extractContent'
 
 useHead({
   title: 'Edit Post',
@@ -64,12 +65,8 @@ const { mutateAsync, mutate } = usePostMutation(url)
 
 async function saveEdittedPost() {
   // custom extract logic
-  const endHeading = content.value.search('</h1>')
-  const edittedPost = {
-    title: content.value.slice(4, endHeading),
-    body: content.value.slice(endHeading).replace(/<(?:.|\n)*?>/gm, ''),
-  }
-  console.log(url.value)
+  const edittedPost = extractFromHTML(content.value)
+  // console.log(url.value)
   await mutateAsync(edittedPost as any)
 }
 </script>
